@@ -1,0 +1,97 @@
+구조 분해 할당
+객체와 배열
+let fruits = ["사과","딸기","바나나"];
+let [fruit1,fruit2,fruit3] = fruits;
+=> 이렇게 작성하면 각 1,2,3에 사과,딸기,바나나가 담긴다.
+let fruit1 = fruits[0];
+let fruit2 = fruits[1];
+let fruit3 = fruits[2];
+let [fruit1,fruit2,fruit3] = fruits;
+만약, let [fruit1,,fruit3] = fruits; 이렇게 입력하면(, 사용) 필요하지 않는 배열요소는 제외시킬 수 있습니다.
+* 배열의 요소를 직접 변수에 할당하는 것보다 코드를 줄일 수 있습니다.
+* ... 스프레드 구문을 사용하여 나머지 요소들을 배열로 받을 수 있다.
+* 할당할 값이 없을 때 기본값을 설정할 수 있다.
+데이터베이스 => 테이블 => 회원의 레코드 
+let str1 = "green"
+let str2 = "blue"
+str1에 blue str2에 green
+[str1, str2] = [str2, str1]
+스프레드 구문 ...
+나머지 요소를 가져오기
+let newArr = ["a","b","c","d","e","f","g"];
+let [str1,str2,str3,...str4] = newArr;
+str1에는 a / str2에는 b / str3에는 c / str4에는 나머지 d e f g를 할당 (,...를 이용)
+let [name="green", hobby="study"] = ["blue"]
+
+객체 구조 분해 할당
+let { name, age } = { name: "a", age: 30 }
+let student = {
+	name: "green",
+	age: 20,
+	hasJob: true
+}
+let { name, age, hasJob } = student
+{ 객체 keyname: 변수이름 }
+let {name: n, hasJob: job, age} = student;
+let obj = { title: "green", height: 200, width: 200 }
+let { title, ...rest } = obj;
+
+함수 매개변수
+let options = {
+	title: "MyTitle",
+	items: ["item1","item2"]
+}
+
+function showMenu({ title, items }){
+	console.log(title)
+	console.log(items)
+
+}
+showMenu(options)
+
+--------------------------------------------------
+
+Set 중복을 허용하지 않는 값을 모아놓은 특별한 컬랙션
+1) new Set() => set을 생성
+2) set.add(value) => 값을 추가
+3) set.delete(value) => 값을 제거
+4) set.has(value) => set내에 값이 존재하면 true를 리턴, 존재하지 않으면 false를 리턴
+5) set.clear() => set을 배움
+6) set.size => set 요소의 갯수
+
+
+--------------------------------------------------
+스크롤 이벤트
+1) 스크롤 반환 document.documentElement.scrollTop;
+2) 스크롤 이벤트 연결
+document.addEventListener("scroll", function(){ 
+	window.scrollTo({top:index*winh, behavior:"smooth"})
+})
+	스크롤 될 때 동작하는 코드
+})
+3) 스크롤 위치 이동 
+window.scrollTo({top: 200, behavior: "smooth"})
+
+마우스 무브 이벤트
+obj.addEventListener("mousemove",function(e){
+	e.pageX
+	e.pageY
+})
+
+윈도우 높이
+구하는 방법: console에 window 찍기 -> innerHeight
+innerHeight: 969
+innerWidth: 1452
+
+
+
+
+
+
+
+
+
+
+
+
+

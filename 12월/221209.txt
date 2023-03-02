@@ -1,0 +1,35 @@
+브라우저 저장소
+1. 쿠키
+브라우저에 저장되는 작은 크기의 문자열
+* 로그인에 사용
+1) document.cookie 속성
+: 쿠키가 브라우저에 저장되어 있는지 확인
+ex) document.cookie = "user=green";
+이름이 user 쿠기의 값을 변경
+2) setCookie("이름", "값", "시간")
+
+2. 로컬 스토리지
+- 브라우져를 다시 실행해도 저장된다.
+- localStorage.setItem(key, value) : 키: 값 형태로 보관된다.
+value에 자바스크립트 개체, 배열을 저장할 때는 문자열로 직렬화 후 저장해야한다.
+JSON.stringify(obj)
+- localStorage.getItem(key) : 키에 해당하는 값이 접근한다.
+담긴 값이 배열이나 객체 문자열이라면 다시 객체화 해서 사용해야한다.
+JSON.parse(data)
+- localStorage.removeItem(key) : 키와 해당하는 값을 삭제한다.
+
+- localStorage.cleaer() : 모든 것을 삭제한다.
+- localStorage.length : 저장된 항목의 갯수를 얻는다.
+
+Object.keys() => key 값이 담긴 배열 리턴
+Object.values() => value가 담긴 배열 리턴
+Object.entprise() => [[key]]
+
+3. 세션 스토리지
+브라우저 창을 닫는 순간 자동으로 삭제됩니다.
+일회성 데이터를 보관하여 사용
+- 사용자 정보 중 세션을 유지하는 동안에만 참조할 데이터 저장
+- 화면 이동 시 전달해야할 파라미터가 많은 경우 저장
+sessionStroage.setItem("title","green");
+sessionStroage.getItem("title");
+sessionStroage.removeItem("title");

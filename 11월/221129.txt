@@ -1,0 +1,74 @@
+XMLHttpRequest - 서버와 통신을 하도록하는 객체
+ajax(Asynchronous javascript and xml)
+동적으로 서버에서 데이터를 주고받는 기술
+XML => 마크업 언어
+JSON(java script object notation)
+오브젝트를 보고 만든 데이터 포맷
+텍스트를 기반으로 하여 파일이 가벼움
+데이터를 직렬화하여 전송할 때 쓰이는 파일
+프로그램 언어와 플랫폼에 상관없이 사용가능함
+모바일에서도 서버와 전송시 사용된다.
+오브젝트 => 직렬화 스트링 JSON.stringigy(obj)
+json => 오브젝트 JSON.parse(json)
+{
+	"name":"green",
+	"age":30,
+}
+
+XMLHttpRequest 내장 객체
+내장메소드
+let xhr = new XMLHttpRequest();
+xhr.open("GET","url")
+xhr.setRequestHeader("content-type","application/json");
+xhr.send(data);
+
+xhr.onload = () => {
+	if(xhr.status === 200){
+		const res = JSON.parse(xhr.response);
+	}else {
+	console.error(xhr.status, xhr.statusText)
+	}
+}
+
+<script>
+        //서버 전송 객체 생성
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET","https://jsonplaceholder.typicode.com/posts");
+        xhr.setRequestHeader("content-type","application/json");
+        xhr.send();     //요청하는 것
+        xhr.onload = () => {
+            if(xhr.status === 200){
+                const res = JSON.parse(xhr.response);
+                console.log(res);
+            }else {
+                console.error(xhr.status, xhr.statusText);
+            }
+
+        }
+</script>
+
+
+https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=%EC%97%AC%EC%84%B1%EC%9D%98%EB%A5%98
+https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=computer
+
+200번대는 정상적으로 응답을 했을 때
+400번대는 클라이언트가 요청을 잘못 했을 때 ex)404 not found
+500번대는 서버에서 에러가 발생 했을 때
+
+Fetch API
+Promise 방식
+fetch("경로")
+.then(response => response.json())
+.then(json => console.log(json))
+
+
+
+
+
+
+
+
+
+
+
+

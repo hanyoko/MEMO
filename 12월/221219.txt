@@ -1,0 +1,21 @@
+get 전송
+
+슈퍼글로벌변수
+$_GET => get으로 전송받은 데이터를 가지고 있다
+$_GET['no']
+$_GET['name']
+$_POST => post로 전송받은 데이터를 가지고 있다
+C-생성 R-조회 U-업데이트 D-삭제
+삭제하기
+delete from 테이블 이름
+where 컬럼명 = 컬럼값
+
+수정하기
+update 테이블 이름
+set 변경하려는 컬럼이름 = 변경될 값
+where 컬럼이름 = 컬럼값
+
+ex)
+update board
+set title = "하하하"
+where no=5

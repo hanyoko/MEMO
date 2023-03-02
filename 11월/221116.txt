@@ -1,0 +1,102 @@
+java script로 DOM 요소 제어하기
+
+1)DOM 수정하기
+el.innerHTML
+el.innerTEXT
+
+<body>
+    <input type="text" name="" id="username">
+    <button onclick="inputPrint()">클릭</button>
+    <ul>
+        <li>list1<span>span</span></li>
+        <li>list2<span>span</span></li>
+        <li>list3<span>span</span></li>
+        <li>list4<span>span</span></li>
+    </ul>
+    <div id="box01"><h1>안녕하세요</h1></div>
+    <div id="box02"></div>
+    <script>
+        const input = document.querySelector("#username");
+        console.log(input);
+        function inputPrint(){
+            input.value = "";
+        }
+        //parentElement
+        const ul = document.querySelector("ul")
+        ul.addEventListener("click",function(e){
+            console.log(e);
+            let li = e.target;
+            console.log(li);
+        })
+        box01.innerHTML = "<h2>즐거운 수요일</h2>";     //innerHTML은 태그를 인식한다
+        box02.innerText = "<h2>즐거운 수요일</h2>";     //innerText는 태그를 인식하지 못하고 적힌 그대로 출력된다.
+    </script>
+</body>
+
+2) DOM 요소 생성
+document.creatElment('div') 새요소생성
+document.creatTextNode('내용') 텍스트노드만들기
+
+3) 만들어진 요소를 DOM에 추가하기
+parent.appendChild(el)
+parent.insertBefore(el, position)
+node.append(노드나 문자열) - node 끝에 삽입
+node.prepend(노드나 문자열) - node 맨앞에 삽입
+node.before(노드나 문자열) - node 이전에 삽입
+node.after(노드나 문자열) - node 다음에 삽입
+insertAdjacentHTML/Text/Element(where, html)
+beforebegin - elem 바로 앞에 삽입
+afterbegib - 첫번째 자식요소 앞에 삽입
+beforeend - 마지막 자식요소 다음에 삽입
+afterend - elem 바로 다음에 삽입
+
+4) 노드 삭제하기
+node.remove()
+parent.removeChild(child)
+
+5) 노드 선택하기
+children 자식요소노드 선택
+lastElementChild 자식요소 중 마지막 요소 선택
+firstElementChild 자식요소 중 첫번째 요소 선택
+parentElement 부모 요소 선택
+nextElementSibling 다음 요소 선택
+previousElementSibling 이전 요소 선택
+
+gradient CSS
+background: linear-gradient(to right, #fc5d7d, #6a82fb);    /* to right를 하면 오른쪽으로 */
+
+gradient 추천 사이트 : ??????
+
+
+[자바스크립트 비동기]
+setTimeout(f, time)
+1번만 함수 수행
+setInterval(f, time)
+시간이 지날 때마다 실행
+
+3초 뒤
+indexNum = 0;
+nextNum = 1
+0번째 div 눈 끄기
+1번째 div 눈 켜기
+indexNum = 1
+
+3초 뒤
+indexNum = 1
+nextNum = 2
+1번째 div 눈 끄기 
+2번째 div 눈 켜기
+indexNum = 2
+
+3초 뒤
+indexNum = 2
+nextNum = 3
+2번째 div 눈 끄고
+3번째 div 눈 켜기
+indexNum = 3
+
+3초 뒤
+indexNum = 3
+nextNum = 4 % 4
+
+

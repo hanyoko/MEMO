@@ -1,0 +1,64 @@
+text 관련 속성
+font-size 글자크기
+color 글자색상
+font-weight 두께
+letter-spacing 자간
+font-family 서체
+line-height 행높이(줄높이)
+text-decoration 밑줄
+text-align 정렬
+
+padding : 10px	위아래좌우 똑같이 
+padding : 10px 20px 위아래 좌우
+padding : 10px 20px
+padding : 10px 20px 30px 40px 위 아래 좌 우
+ 
+padding-left / padding-right / padding-bottom / padding-top
+
+margin : 0 auto / margin-left / margin-right / margin-top 
+
+border-width 1px
+border-style solid
+border-color red
+=> border : 1px solid red;		위에 적힌 3가지의 속성을 한번에 적는 속성 -> border
+border-right :
+border-left
+border-top
+border-bottom
+
+border: 1px solid/double/dashed blue;
+	    점선	두줄    점선
+
+box-sizing: border-box;
+
+display
+none / block / inline / inline-bolck
+* font-size
+
+float
+left / right
+
+clear
+left, right 그리고 both가 있는데 보통 both를 이용해서 양쪽 다 clear 해준다.
+
+example)
+width 1100 중앙배치
+input 배경 노란색ㄱ
+text, password만 width를 180px으로
+
+
+    input {
+        outline: none;
+        border: 1px solid #ccc
+    }
+input에 자동으로 들어간 선을을 없애줘야한다.
+
+
+header li
+topmenu ul
+topmenu ul li
+a
+left
+right
+footer
+

@@ -1,0 +1,7 @@
+grid
+정의된 컨테이너의 자식 요소들은 자동으로 grid itemd으로 정의된다.
+그리드를 사용하기 위해 컨테이너에 필수로 작성한다.
+
+/* row-gap: 20px;
+            column-gap: 20px; */
+            gap: 20px 40px; /* gap 속기법 : 왼쪽이 row 오른쪽이 column */

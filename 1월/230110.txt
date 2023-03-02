@@ -1,0 +1,104 @@
+react style 적용
+1) inline styling
+html 태그 안에 직접 입력하는 방법
+style={} json형식(객체)으로 속성명 : 속성값으로 입력
+속성명 css (-) 대신 커멀케이스 방식을 사용
+font-size ---> fontSize
+<div>
+	<h2 style={{color: "red", fontSize:"24px"}}></h2>
+</div>
+
+2) javascript object
+객체 형식으로 컴포넌트 내에 변수를 선언
+해당 태그에 style={변수명}
+const textStyle = {
+	fontSize: "36px",
+	color: "pink"
+}
+<h2 style={textStyle}></h2>
+
+3) css파일 작성
+import './style.css'
+
+변수 const
+상태 state
+Ref ref
+컴포넌트의 전 생애주기동안 유지된다.
+
+컴포넌트가 리렌더링 되어도 언마운트 되기 전까지 유지된다.
+state가 변경 --> 렌더링이 발생 --> 컴포넌트
+내부 변수들 초기화가 된다 (Ref 값은 유지된다.)
+Ref가 변경 --> 렌더링 X --> 변수들의 값 유지
+
+useState() ----> [state.f]
+useRef()
+const [ text, setText ] = useState("초기값")
+const ref = useRef(value)
+
+setText("hi")
+2) ref 값 변경
+ref.current = "aa";
+
+
+1) Ref 생성
+useRef(value) 훅 함수를 사용하면 { current: value } 객체를 리턴
+구문> const ref = useRef(value) ---> { current: value }
+2) ref 값 변경
+ref.current = "green"; ---> { current: "green" }
+3) Ref 특징
+ref 값은 컴포넌트의 전 생애주기동안 유지된다.
+컴포넌트가 리렌더링 되어도 언마운트 되기 전까지 유지된다.
+state가 변경 --> 렌더링이 발생 --> 컴포넌트
+내부 변수들 초기화가 된다 (Ref 값은 유지된다.)
+Ref가 변경 --> 렌더링 X --> 변수들의 값 유지
+4) Ref 용도
+- 저장공간 : 값이 변경되어도 렌더링이 일어나지 않으며 렌더링이 되어도 초기화 되지않고 값이 유지되는 저장공간
+- DOM 요소의 접근 : document.querySelector() 같은 역할을 해줌
+const nameInput = useRef();
+nameInput.current.focus();
+<input ref={nameInput}>
+
+function numberView(){
+	let num = 10;
+	for(let i=0; i<5; i++){
+	num++; console.log(num)
+	}
+}
+
+useEffect
+마운트 : 나타남
+업데이트 : 다시 렌더링
+언마운트 : 사라짐
+
+useEffect 를 사용하여 
+마운트 / 언마운트 / 업데이트 시 실행할 작업 설정하기
+이 함수를 사용하면 처음 화면이 나타날 때 특정 작업을 할 수 있다.
+리렌더링 될 때마다 특정 작업도 할 수 있다.
+
+1) useEffect 구문
+useEffect(콜백함수)
+*렌더링 될 때마다 실행
+ex) useEffect(()=>{
+	//실행할 코드
+})
+* 화면에 첫 렌더링 될 때 실행 + value값이 변경될 때만 실행
+ex) useEffect(()=>{
+	//실행할 코드
+}, [value])
+* 화면에 첫 렌더링 될 때만 실행
+ex) useEffect(()=>{
+	//실행할 코드
+}, [])
+* 마운트 됐을 때 실행, 언마운트 됐을 때 실행
+useEffect(()=>{
+	//마운트 됐을 때 실행코드
+	return ()=>{
+	//언마운트 됐을 때 실행코드
+	}
+},[])
+
+
+
+
+
+

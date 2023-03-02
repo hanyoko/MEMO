@@ -1,0 +1,74 @@
+useMemo ---> 결과값을 재사용
+구문 >
+useMemo(()=>{
+	return value;	//결과값을 담아두고 재사용
+},[deps])
+
+useMemo(()=>{
+	return (num);	//결과값을 담아두고 재사용
+},[deps])
+
+
+useCallback ---> 특정 함수를 재사용
+useCallback((num=>{
+	return num + 1;	//함수 자체를 재사용
+}),[deps])
+
+useMemo(()=>fn, [deps])
+useCallback(fn,[deps])
+useMemo는 함수를 반환하지않고, 함수의 값만 memoization 해서 반환하고,
+useCallback은 함수 자체를 memoization 해서 반환함
+
+useState() 상태관리
+- 간단한 상태관리
+
+const [number, setNumber] = useState()
+useReducer() 새로운 상태관리
+* useState는 설정하고 싶은 상태를 직접 설정하고 지정해서 상태를 업데이트함
+* useReducer는 액션 객체를 기반으로 상태를 업데이트함
+
+Dispatch(Action) --------> Reducer(state, Action)
+
+	Action
+Dispatch --------> Reducer --------> State
+  요청		   은행		
+
+const [number, setNumber] = useState(초기값) ---> return [state, f]
+const [number, dispatch] = useReducer(reducer함수, 초기값)
+ ---> return [state, dispatch f]
+dispatch({})
+
+action.type 지정
+할일 추가하기 addTodo
+input 값 변경 changeInput
+할일 삭제 deleteTodo
+isDone 반전 toggleDoto
+요청
+할일 추가해줘 ~ addTodo  -->  {type: "addTodo"}
+input 상태값 변경해줘 ~ changeInput  -->  {type: "changeInput"}
+할일 항목하나 삭제해줘 ~ deleteTodo  -->  {type: "deleteTodo"}
+할일 항목의 isDone 반전시켜줘 ~ toggleTodo  -->  {type: "toggleTodo"}
+reducer
+
+
+{
+	input: "",
+  	todos: [
+    		{id: 1, text: "해야할 일1", isDone: false},
+    		{id: 2, text: "해야할 일2", isDone: false},
+  	],
+  	id : 3
+	todos: [
+	{id: 1, text: "해야할 일1", isDone: false},
+ 	{id: 2, text: "해야할 일2", isDone: false},
+	action.todo
+	],
+	id: 4(3+1)
+}
+
+
+
+
+
+
+

@@ -1,0 +1,380 @@
+프론트엔드 커리큘럼
+html
+css
+scss - css 확장판
+*javascript
+mysql
+php
+*react +node.js
+*redux
+*typescript
+라즈베리파이 (리눅스+파이썬+전기회로)
+
+display : block
+<p><div><h1><h2><h3><h4><h5><h6>
+<ol><ul><li><dl><dt><dd
+*한 행을 다 차지한다
+*너비와 높이를 지정할 수 있다
+p { width: 300px; height: 100px; background: pink;}
+p { width: 300px; height: 100px; background: rgba(255,0,0,0.5)
+색상명 뿐만 아니라 색상값을 입력해서 색을 입힐 수 있다.
+
+inline / inline-block
+<img><span><input><select>
+<mark<sup><sub><ins><del><a>
+*컨텐츠 크기가 너비가 된다
+*너비와 높이를 지정할 수 없다
+*공간이 있으면 가로로 쌓인다
+*옆으로 올 수 없다
+a { width: 100px; height: 100px; background: yellow;}
+처럼 형식을 갖춰도 크기가 변하지 않는다
+
+width : 너비
+height : 높이
+
+[css 구문]
+선택자 { 속성: 속성값; 속성: 속성값; } ★암기★
+
+text 속성
+
+color 글자색상
+색상명은 red / green / yellow ... 로 가능
+16진수 #000000 ~ #ffffff
+컬러함수 rgb(r, g, b) 0~255
+https://www.w3schools.com/cssref/css_colors.asp
+-> 이 사이트에서 색상 함수값을 참고해서 사용가능하다.
+rgba(r, g, b, a) 0(투명하게)~1(선명하게)
+
+font-size 글자크기
+14px
+
+line-height 줄높이
+20px
+1.6
+
+font-weight 글자 두껍게
+normal / bold
+
+letter-spacing 자간
+
+text-decoration 글자꾸미기
+underline -> 보통 a 코드를 이용하면 underline이 자동으로 입력되는데 이걸 빼줘야한다.
+none
+line-through 글자 중간에 줄이 생긴다
+overline 글자 위에 줄이 생긴다
+
+text-indent 들여쓰기
+text-align left / center / right
+text-shadow
+x-offset y-offset blur color
+ex) h1 { text-shadow : 2px 2px 5px red; }
+body에 h1을 입력하고 style에 속성을 입력하면 글자에 그림자가 생긴다.
+
+폰트 지정 태그
+font-family: -apple-system,BlinkMacSystemFont,"Malgun Gothic","맑은 고딕",helvetica,"Apple SD Gothic Neo",sans-serif;
+
+background 배경색
+색상명 / 16진수 / 컬러함수 rgb(r,g,b), rgba(r,g,b,a)
+
+[Box Model]
+width 너비
+*width와 margin은 같이 써줘야한다
+
+height 높이
+
+padding 안쪽 여백
+*background를 설정하면 안쪽 여백은 색이 입혀진다 (but, 이때 바깥쪽 여백은 색이 입혀지지 않는다.)
+
+margin 바깥쪽 여백
+*보통 자동적으로 margin이 생기게된다. 그래서 margin 값을 0으로 주고 여백을 없애줘야한다.
+->      body(속성값) {margin: 0;}
+  margin-left: 20px; 으로 입력하면 왼쪽여백만 생긴다
+  margin-right: 20px; 오른쪽
+  margin-bottom: 20px; 아래
+  margin-top: 20px; 위
+  margin: 20px; 네군데 다 여백이 들어간다
+
+  margin: 0 auto; 위아래는 0 좌우(auto)는 자동으로 나눠주는 값
+
+
+border 바깥 여백
+
+border 테두리
+
+★★★★★TIP★★★★★
+style에 속성을 입력할 때 모든 값을 입력하고 싶을 때는 *을 입력하면 된다.
+
+/* ... */ 메모하는 내용 적을 때
+쉽게 기억하기/ margin : 테이블과 테이블의 사이 / padding : 테이블과 음식과의 사이
+
+width의 기준은 컨텐츠의 크기
+-> ex) 1200크기의 페이지에 600 width를 가진 두개의 컨텐츠를 입력
+하지만 첫번째 컨텐츠에 border를 주면 하나의 크기가 커지면서 가로로 배치가 안 된다.
+
+ * {margin: 0; padding: 0; box-sizing: border-box; }
+box-sizing으로 width의 기준을 border까지로 바꿀 수 있다.
+if,  * {margin: 0; padding: 0; box-sizing: content-box; } 로 바뀌면 디폴트값이 된다.
+
+display: inline-block;
+inline-block으로 바꿔줘야 변형을 줄 수 있다.
+
+display : 속성
+none : 공간을 차지하지않고 화면에 나타나지 않는다
+inline : 크기를 지정할 수 없고 가로로 배치
+block : 크기 지정하며 세로배치(한 행을 차지한다)
+inline-block : 크기를 지정할 수 있으며 가로 배치
+
+    <div>그린컴퓨터 아카데미 박스1</div>
+    <div id="box2">그린컴퓨터 아카데미 박스2</div>
+    <div>그린컴퓨터 아카데미 박스3</div>
+*margin을 줄이고 이대로 두면 margin이 0이지만 여백이 남아있다
+여백을 아예 없애기 위해서는
+    <div>그린컴퓨터 아카데미 박스1</div><div id="box2">그린컴퓨터 아카데미 박스2</div><div>그린컴퓨터 아카데미 박스3</div>
+이렇게 공백을 없애주면 여백이 아예 사라진다. but, 같이 작업하는 사람들이 불편함이 있어 사용하지않는다.
+inline-block으로 배치를 할 경우 제거되지 않는 margin이 생긴다 !!!!!!!
+해결방법 => 부모요소를 선택 후 font-size: 0; 설정하면 된다.
+
+            font-family: "맑은 고딕", sans-serif; (1지망, 2지망 순서)
+
+        #greenLeft {
+            display: inline-block;
+            background: pink;
+        }
+        #greenRight {
+            display: inline-block;
+            background: yellow;;
+크기를 가늠하기 위해서는 background를 줘서 크기를 확인할 수 있다.
+크기를 맞추고 난 후에도 옆으로 배열되지 않으면 글자를 확인해봐야한다.
+
+            display: inline-block; => 옆으로 정렬을 원할 때
+
+        #styleview li {} => 하위 선택자
+모든 li가 아닌 styleview에 포함된 li만 적용시키고 싶을 때
+
+display
+float
+flexbox
+gridbox
+
+항목이 비슷한 목록을 입력할 때는 ul과 li로 묶어준다
+
+h2+ul>(li>a)*4
+                <h2></h2>
+                <ul>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                </ul>
+
+
+        #wrap {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+max-width를 이용해서 최대값을 설정해야 한다.
+반응형을 대비하기 위해서
+
+        a {text-decoration: none; color: inherit; }
+글씨 변형을 없애고 변형된 글씨의 색을 없애는 속성
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight:  normal;
+}
+h 시리즈에는 자동으로 굵게 등이 포함되어 있는데 그 속성을 기본으로 바꾸는 것
+h1~h6는 연속자라서 전부 적어줘야한다.
+
+        li {list-style: none; }
+li를 사용하면 생기는 *는 일하면서 쓸일이 거의 없다. 이 코드를 이용해 없애준다.
+
+        #header {
+            height: 120px;
+            background: pink;
+            font-size: 0;
+        }
+        li {list-style: none; }
+        #header h1 {
+            display: inline-block;
+            width: 10%;
+            font-size: 28px;
+        }
+        #header ul {
+            display: inline-block;
+            width: 25%;
+            margin-left: 65%;
+            font-size: 14px;
+        }
+ul을 오른쪽으로 보내고 싶은데 공간이 있을 때
+해당 태그의 부모태그로 가서 font-size: 0;을 해주고
+태그로 다시 돌아와서 font-size를 키워준다.
+
+
+margin을 주기 전에 퍼센트를 나눠서 배열한다.
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin:0; padding:0; box-sizing: border-box;
+        }
+        body {
+            font-family: "맑은 고딕", sans-serif;
+            color: #333;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        a {text-decoration: none; color: inherit; }
+        h1, h2, h3, h4, h5, h6 {
+            font-weight:  normal;
+        }
+        #wrap {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        #header {
+            height: 120px;
+            font-size: 0;
+            padding: 45px 0;
+        }
+        li {list-style: none; }
+        #header h1 {
+            display: inline-block;
+            width: 10%;
+            font-size: 28px;
+            line-height: 30px;
+        }
+        #header ul {
+            display: inline-block;
+            width: 25%;
+            margin-left: 65%;
+            vertical-align: top;
+        }
+        #header ul li {
+            display: inline-block;
+            font-size: 14px;
+            width: 25%;
+            border-right: 1px solid #ccc;
+            text-align: center;
+        }
+        #header ul li.rightnone {
+            border-right: none;
+        }
+        h2 {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 1px solid #333;
+            margin-bottom: 30px; /*테두리 바깥 쪽이니까 margin*/
+        }
+        #mainContents ul {
+            font-size: 0;
+        }
+        #mainContents li {
+            display: inline-block;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            width: 30%;
+            text-align: center;
+            padding: 40px 0;
+        }
+        #mainContents li span {
+            display: block;
+        }
+        .mr5 {
+            margin-right: 5% /*class를 붙여주고 가져와서 margin을 준다*/
+        }
+        #mainNotice li {
+            border-bottom: 1px solid #ccc;
+            line-height: 40px;
+        }
+        address {
+            font-style: normal;
+            width: 70%;
+            display: inline-block;
+        }
+        #footer {
+            padding: 20px 0;
+            display: inline-block;
+        }
+        #footer h1 {
+            display: inline-block;
+            width: 28%;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+            <h1>Green</h1>
+            <ul>
+                <li><a href="#"></a>menu1</li>
+                <li><a href="#"></a>menu2</li>
+                <li><a href="#"></a>menu3</li>
+                <li class="rightnone"><a href="#"></a>menu4</li>
+            </ul>
+        </div>
+        <div id="contents">
+            <div id="mainContents">
+                <h2>메인컨텐츠01</h2>
+                <ul>
+                    <li class="mr5">
+                        <h3>작은제목입니다.</h3>
+                        내용 적는 부분입니다.
+                        <span>2022.10.12</span>
+                    </li>
+                    <li class="mr5">
+                        <h3>작은제목입니다.</h3>
+                        내용 적는 부분입니다.
+                        <span>2022.10.12</span>
+                    </li>
+                    <li>
+                        <h3>작은제목입니다.</h3>
+                        내용 적는 부분입니다.
+                        <span>2022.10.12</span>
+                    </li>
+                </ul>
+            </div>
+            <div id="mainNotice">
+                <h2>공지사항</h2>
+                <ul>
+                    <li><a href="#">그린컴퓨터 아카데미 소식</a></li>
+                    <li><a href="#">그린컴퓨터 아카데미 소식</a></li>
+                    <li><a href="#">그린컴퓨터 아카데미 소식</a></li>
+                    <li><a href="#">그린컴퓨터 아카데미 소식</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="footer">
+            <address>
+                주소 : 서울특별시 용산구 한강대로 대표이사 : 그린 사업자등록번호 : 110-12-12345 통신판매신고 : 제 2020-서울용산-000호     
+            </address>
+            <h1>Green</h1>
+        </div>
+    </div>
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,5 @@
+let timer = setInterval(function(){},time)
+1000 => 1√ 
+clearInterval(timer)
+setTimeout(function(){},time)
+

@@ -1,0 +1,30 @@
+파일 업로드
+1)
+<form enctype="multipart/form-data">
+	<input type="file" name="img1">
+</form>
+$_FILES
+$_SESSION
+$_GET
+$_POST
+
+2) 파일 이동하기
+move_uploaded_file(파일경로, 옮길경로)
+
+동물사진 게시판
+animals 테이블 생성
+animal no		primary key auto_increment
+kinds		varchar(20)
+name		varchar(20)
+age		int
+color		varchar(20)
+photourl		varchar(60)
+
+create table animals (
+	animalno int primary key auto_increment,
+	kinds varchar(20) not null,
+	name varchar(20) not null,
+	age int,
+	color varchar(20),
+	photourl varchar(60)
+)

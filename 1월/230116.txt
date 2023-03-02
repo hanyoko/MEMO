@@ -1,0 +1,122 @@
+저장, DOM 접근
+let ref = useRef(0)
+ref.current = 10
+useEffect(콜백함수, [name])
+리액트 최적화
+useMemo(콜백함수,[]) 값을 memoization
+useCallback(콜백함수,[]) 함수를 mimoization
+conText API - 전역으로 데이터 관리
+1) createContext()
+ex) const UserContext = createContext(null)
+<UserContext.Provider value="green">
+	<App></App>
+</UserContext>
+2)useContext(컨텍스트)
+const text = useContext(UserContext);
+
+useReducer()
+1) 상태 초기화
+2) reducer 함수 구현
+3) 상태와 disPatch 생성 ---> useReducer(reducer 함수, 상태초기값)
+function reducer(state,action) {
+	switch (action.type){
+		case 'incerment':
+		return state + 1;
+		case 'decrement':
+		return state - 1;
+		default:
+		return state;
+	}
+}
+function Counter(){
+	const [number, dispatch] = useReducer(reducer,0);
+	const onIncrese = () => {
+		dispatch({
+			type: 'incerment'
+		}
+	}
+
+}
+context 생성
+context 값으로 dispatch
+props로 전달하지않고 context 사용으로 변경
+
+		props
+부모 컴포넌트 ----------------> 자식 컴포넌트
+       props          props           props
+부모 -------> 자식 -------> 자식 -------> 자식
+conText API
+<UserContex.Provider value="aa">
+부모
+</UserContext.Provider>
+
+const text = useContext(UserContext)
+
+
+[react icon 설치]
+구글에 react icons 검색
+npm install react-icons --save 복사 후 terminal에 붙여넣기
+
+아이콘 등록하기
+MdDelete
+
+노트폴리오 : 포트폴리오 참고 사이트
+
+[Axios]
+Axios는 node.js와 브라우저를 위한 Promise 기반 HTTP 클라이언트 입니다.
+그것은 동형 입니다(동일한 코드베이스로 브라우저와 node.js에서 실행할 수 있습니다).
+서버 사이드에서는 네이티브 node.js의 http 모듈을 사용하고, 클라이언트(브라우저)에서는 XMLHttpRequests를 사용합니다.
+
+
+API 요청 메소드
+GET : 데이터조회
+POST : 데이터등록
+PUT : 데이터수정
+DELETE : 데이터제거
+
+axios 사용법
+import axios from 'axios';
+
+axios.get('/users/1')
+axios.post('경로', { username: "green", id: "aa" })
+
+useState, useEffect로 데이터 로딩하기
+상태관리 
+1. 요청의 결과 - null
+2. 로딩상태 - false
+3. 에러 - null
+
+로딩상태가 true면 로딩 중 화면을 보여준다.
+에러가 null이 아니면 에러가 발생했습니다. 화면을 나타낸다.
+결과값이 없으면 null을 보여준다.
+
+로딩이 false이고 에러가 null이고 결과값이 null이 아닐 때 받아온 데이터를 화면에 나타냄
+
+axios 설치 방법
+ npm install axios
+
+
+reducer 사용하기  ★[암기]★
+1) 상태 초기화
+2) reducer 함수구현
+function reducer(state, action){
+	switch(action.type){
+	case 'aaa':
+		return {
+			...state,
+			key: action.key
+		}
+	}
+}
+3) const [state, dispatch] useReducer(reducer, initialState)
+
+
+
+
+
+
+
+
+
+
+

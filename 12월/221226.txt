@@ -1,0 +1,76 @@
+mysql에 비밀번호를 그냥 저장하는 것이 아니라 암호화 하여 저장한다
+
+1. 비밀번호 암호화
+password_hash("문자열",option)
+option
+1) PASSWORD_DEFAULT(bcrypt 알고리즘)-주로 사용하고 저장할 DB의 column은 varchar(255)를 준다.
+2) PASSWORD_BCRYPT(CRYPY_BLOWFISH 알고리즘)
+3) PASSWORD_ARGON21(Argon2i 해싱 알고리즘)
+4) PASSWORD_ARGON21D(Argon2id 해싱 알고리즘)
+
+2. 비밀번호 체크하기
+구문) password_varify("문자열",$hash)
+
+create
+select
+insert
+update
+delete
+
+update 테이블 이름
+set 필드이름 = 데이터값, 필드이름2 = 데이터값2
+where 필드이름 = 데이터값
+
+alter table member modify column pw varchar(255) not null
+
+
+새이름
+new
+1234
+1234
+01012341234
+
+php 문자열 내장함수
+1) 배열을 문자열로 리턴
+join(separatorm arr)
+implode(separetor, arr)
+
+2) 문자열을 배열로 리턴
+explode(separtor, string)
+
+3) 배열 출력
+- var_dump(arr) : 배열의 키, 값, 속성 출력
+- print_r(arr) : 배열의 키, 값 출력
+
+4) 문자열 검색
+- substr(string, start, length) 해당 인덱스에서 해당하는 갯수만큼 문자를 반환
+ex) substr("green",1,2)
+- strstr(string, "기준문자열", boolean) 특정 문자열을 기준으로 그이후 혹은 그이전 문자열을 반환
+true면 이전문자열 false면 이후문자열 (default는 false)
+ex) strstr("greencomhello", "com") => hello
+strstr("greencomhello", "com", true) => green
+- strpos(string, "찾는 문자") 찾는 문자의 해당 index를 반환, 없으면 false 반환
+- str_contains(string, "찾는 문자") 문자열에서 찾는 문자열이 있으면 true
+없으면 false를 반환
+- str_starts_with(string, "찾는 문자")
+문자열이 찾는 문자열로 시작하면 true, 아니면 false 반환
+- str_ends_width(string, "찾는 문자")
+문자열이 찾는 문자열로 끝나면 true 아니면 false 반환
+
+5) 문자열 변경
+- strtoupper(string) 모두 대문자로 변경
+- strtolower(string) 모두 소문자로 변경
+- ucwords() 대소문자가 섞여있는 문자열의 각 단어의 첫글자만 대문자로 변경
+- strtr(string, from, to) 부분 문자열 변경
+ex) strtr("hello green world", "hello", "welcome");
+
+
+
+
+
+
+
+
+
+
+

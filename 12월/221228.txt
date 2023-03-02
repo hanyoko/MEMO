@@ -1,0 +1,385 @@
+select문
+1) 집계함수
+- 최대값 max(컬럼명)
+- 최소값 min(컬럼명)
+- 합계 sum(컬럼명)
+- 평균 avg(컬럼명)
+- 개수 count(컬럼명)
+
+2) 정렬
+- order by문 asc 오름차순 / desc 내림차순
+구문 order by 컬럼명 asc
+
+3) 중복행 제거
+- distinct 컬럼명
+구문 select destinct 컬럼명 from 테이블명
+
+4) 제한된 행 출력
+- limit n
+구문 select * from 테이블명 limit 5;
+
+조건절
+1. 비교 >, >=, <, <=, =, <> 왼쪽값을 기준으로
+			크다, 크거나 같다, 작다, 작거나 같다, 같다, 같지않다
+2. 논리 and, or, not
+3. 범위 between A and B 
+4. 패턴 like % ex) like '김%', like '%광역시%', like '%님' ...
+5. in, not in ex) in(조건A, 조건B) 조건A 또는 B일 때 -> or과 같다
+6. is null, is not null 널일 때, 널이 아닐 때
+
+01) 이름이 김씨인 사람의 모든 컬럼을 검색
+select * from employee
+where pname like '김%'
+
+mysql> select * from employee
+    -> where pname like '김%';
++-------+--------+------+------------+------------+---------+-------+--------+
+| perno | pname  | job  | hiredate   | firedate   | sal     | bonus | datpno |
++-------+--------+------+------------+------------+---------+-------+--------+
+|     6 | 김태환 | 대리 | 2010-08-01 | 2012-04-30 | 1700000 |  NULL |     20 |
+|    13 | 김진수 | 사원 | 2012-03-02 | NULL       |  880000 |  NULL |     40 |
+|    14 | 김성하 | 사원 | 2012-04-01 | NULL       | 1000000 |  NULL |     40 |
++-------+--------+------+------------+------------+---------+-------+--------+
+3 rows in set (0.00 sec)
+
+02) 2010년도에 입사한 사람의 이름, 입사일, 급여 검색
+select pname, hiredate, sal from employee
+where hiredate between '2010-01-01' and '2010-12-31';
+mysql> select pname, hiredate, sal from employee
+    -> where hiredate between '2010-01-01' and '2010-12-31';
++--------+------------+----------+
+| pname  | hiredate   | sal      |
++--------+------------+----------+
+| 박청규 | 2010-03-02 |   880000 |
+| 강원일 | 2010-08-02 |  2000000 |
+| 이봉수 | 2010-01-02 |  3000000 |
+| 허태훈 | 2010-05-02 |  1800000 |
+| 김태환 | 2010-08-01 |  1700000 |
+| 배현직 | 2010-01-02 |  2500000 |
+| 전민철 | 2010-01-02 |  5000000 |
+| 심승진 | 2010-01-02 | 10000000 |
+| 강대원 | 2010-04-02 |  2200000 |
++--------+------------+----------+
+9 rows in set (0.00 sec)
+
+03) 직급이 과장인 사람의 급여평균
+select avg(sal) as '과장평균급여' from employee
+where job = '과장';
+mysql> select avg(sal) as '과장평균급여' from employee
+    -> where job = '과장';
++--------------+
+| 과장평균급여 |
++--------------+
+| 2000000.0000 |
++--------------+
+1 row in set (0.00 sec)
+
+04) 직급의 개수
+select count(distinct job) as '직급수' from employee;
+mysql> select count(distinct job) as '직급수' from employee;
++--------+
+| 직급수 |
++--------+
+|      8 |
++--------+
+1 row in set (0.00 sec)
+
+05) 퇴사한 사람의 수 
+select count(*) as "퇴사자 수" from employee
+where firedate is not null;
+mysql> select count(*) as "퇴사자 수" from employee
+    -> where firedate is not null;
++-----------+
+| 퇴사자 수 |
++-----------+
+|         4 |
++-----------+
+1 row in set (0.00 sec)
+
+06) 보너스가 없는 사람
+select count(*) as "보너스가 없는 사람" from employee
+where bonus is null;
+mysql> select count(*) as "보너스가 없는 사람" from employee
+    -> where bonus is null;
++--------------------+
+| 보너스가 없는 사람 |
++--------------------+
+|                  8 |
++--------------------+
+1 row in set (0.00 sec)
+
+07) 사원 직급을 가진 사람의 사원번호, 이름, 직급, 이름을 오름차순으로 정렬
+select perno, pname, job from employee
+where job = '사원'
+order by pname asc;
+mysql> select perno, pname, job from employee
+    -> where job = '사원'
+    -> order by pname asc;
++-------+--------+------+
+| perno | pname  | job  |
++-------+--------+------+
+|    14 | 김성하 | 사원 |
+|    13 | 김진수 | 사원 |
+|     1 | 박청규 | 사원 |
+|    16 | 엄효인 | 사원 |
+|     5 | 윤주옹 | 사원 |
++-------+--------+------+
+5 rows in set (0.00 sec)
+
+08) 부서번호가 30인 직원의 평균급여 구하기
+select avg(sal) as "부서번호 30인 직원의 평균 급여" from employee
+where datpno = 30;
+mysql> select avg(sal) as "부서번호 30인 직원의 평균 급여" from employee
+    -> where datpno = 30;
++--------------------------------+
+| 부서번호 30인 직원의 평균 급여 |
++--------------------------------+
+|                   4700000.0000 |
++--------------------------------+
+1 row in set (0.00 sec)
+
+09) 김진수와 직급이 같은 사람의 사원번호, 이름, 직급 순으로 출력
+select perno, pname, job from employee
+where job = (select job from employee where pname='김진수');
+mysql> select perno, pname, job from employee
+    -> where job = (select job from employee where pname='김진수');
++-------+--------+------+
+| perno | pname  | job  |
++-------+--------+------+
+|     1 | 박청규 | 사원 |
+|     5 | 윤주옹 | 사원 |
+|    13 | 김진수 | 사원 |
+|    14 | 김성하 | 사원 |
+|    16 | 엄효인 | 사원 |
++-------+--------+------+
+5 rows in set (0.00 sec)
+
+10) 급여가 가장 작은 사람의 이름과 급여 부서번호를 출력
+select pname, sal, datpno from employee
+where sal = (select min(sal) from employee);
+mysql> select pname, sal, datpno from employee
+    -> where sal = (select min(sal) from employee);
++--------+--------+--------+
+| pname  | sal    | datpno |
++--------+--------+--------+
+| 박청규 | 880000 |     10 |
+| 김진수 | 880000 |     40 |
++--------+--------+--------+
+2 rows in set (0.00 sec)
+
+11) 급여의 평균보다 급여가 많은 사람의 이름, 직급, 급여순으로 출력
+급여를 내림차순으로 정렬
+select pname, job, sal from employee
+where sal >= (select avg(sal) from employee)
+order by sal desc;
+mysql> select pname, job, sal from employee
+    -> where sal >= (select avg(sal) from employee)
+    -> order by sal desc;
++--------+--------+----------+
+| pname  | job    | sal      |
++--------+--------+----------+
+| 심승진 | CEO    | 10000000 |
+| 전민철 | 이사   |  5000000 |
+| 이봉수 | 부장   |  3000000 |
+| 배현직 | 본부장 |  2500000 |
++--------+--------+----------+
+4 rows in set (0.00 sec)
+
+12) 2011년 12월 31일까지 입사한 직급이 '사원'인 사람의 급여를 10% 인상하시오.
+수정되었는지 확인하시오.
+update employee
+set sal = sal * 1.1
+where job = '사원' and hiredate <= '2011-12-31';
+mysql> update employee
+    -> set sal = sal * 1.1
+    -> where job = '사원' and hiredate <= '2011-12-31';
+Query OK, 3 rows affected (0.01 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+mysql> select * from employee; <수정 후>
++-------+--------+--------+------------+------------+----------+--------+--------+
+| perno | pname  | job    | hiredate   | firedate   | sal      | bonus  | datpno |
++-------+--------+--------+------------+------------+----------+--------+--------+
+|     1 | 박청규 | 사원   | 2010-03-02 | 2012-08-31 |   968000 |   NULL |     10 |
+|     2 | 강원일 | 팀장   | 2010-08-02 | NULL       |  2000000 | 200000 |     10 |
+|     3 | 이봉수 | 부장   | 2010-01-02 | 2012-02-28 |  3000000 | 300000 |     10 |
+|     4 | 허태훈 | 과장   | 2010-05-02 | NULL       |  1800000 | 100000 |     10 |
+|     5 | 윤주옹 | 사원   | 2011-12-01 | NULL       |  1650000 |   NULL |     10 |
+|     6 | 김태환 | 대리   | 2010-08-01 | 2012-04-30 |  1700000 |   NULL |     20 |
+|     7 | 배현직 | 본부장 | 2010-01-02 | NULL       |  2500000 | 200000 |     20 |
+|     8 | 전민철 | 이사   | 2010-01-02 | NULL       |  5000000 | 500000 |     30 |
+|     9 | 심승진 | CEO    | 2010-01-02 | NULL       | 10000000 |   NULL |     30 |
+|    10 | 강대원 | 과장   | 2010-04-02 | 2012-08-31 |  2200000 | 200000 |     30 |
+|    11 | 유성원 | 대리   | 2012-02-01 | NULL       |  1600000 |   NULL |     30 |
+|    12 | 안재연 | 과장   | 2012-02-01 | NULL       |  2000000 | 200000 |     40 |
+|    13 | 김진수 | 사원   | 2012-03-02 | NULL       |   880000 |   NULL |     40 |
+|    14 | 김성하 | 사원   | 2012-04-01 | NULL       |  1000000 |   NULL |     40 |
+|    15 | 황철원 | 대리   | 2011-12-01 | NULL       |  1500000 | 150000 |     40 |
+|    16 | 엄효인 | 사원   | 2011-12-15 | NULL       |  1320000 |   NULL |     40 |
++-------+--------+--------+------------+------------+----------+--------+--------+
+16 rows in set (0.00 sec)
+
+mysql> select * from employee; <수정 전>
++-------+--------+--------+------------+------------+----------+--------+--------+
+| perno | pname  | job    | hiredate   | firedate   | sal      | bonus  | datpno |
++-------+--------+--------+------------+------------+----------+--------+--------+
+|     1 | 박청규 | 사원   | 2010-03-02 | 2012-08-31 |   880000 |   NULL |     10 |
+|     2 | 강원일 | 팀장   | 2010-08-02 | NULL       |  2000000 | 200000 |     10 |
+|     3 | 이봉수 | 부장   | 2010-01-02 | 2012-02-28 |  3000000 | 300000 |     10 |
+|     4 | 허태훈 | 과장   | 2010-05-02 | NULL       |  1800000 | 100000 |     10 |
+|     5 | 윤주옹 | 사원   | 2011-12-01 | NULL       |  1500000 |   NULL |     10 |
+|     6 | 김태환 | 대리   | 2010-08-01 | 2012-04-30 |  1700000 |   NULL |     20 |
+|     7 | 배현직 | 본부장 | 2010-01-02 | NULL       |  2500000 | 200000 |     20 |
+|     8 | 전민철 | 이사   | 2010-01-02 | NULL       |  5000000 | 500000 |     30 |
+|     9 | 심승진 | CEO    | 2010-01-02 | NULL       | 10000000 |   NULL |     30 |
+|    10 | 강대원 | 과장   | 2010-04-02 | 2012-08-31 |  2200000 | 200000 |     30 |
+|    11 | 유성원 | 대리   | 2012-02-01 | NULL       |  1600000 |   NULL |     30 |
+|    12 | 안재연 | 과장   | 2012-02-01 | NULL       |  2000000 | 200000 |     40 |
+|    13 | 김진수 | 사원   | 2012-03-02 | NULL       |   880000 |   NULL |     40 |
+|    14 | 김성하 | 사원   | 2012-04-01 | NULL       |  1000000 |   NULL |     40 |
+|    15 | 황철원 | 대리   | 2011-12-01 | NULL       |  1500000 | 150000 |     40 |
+|    16 | 엄효인 | 사원   | 2011-12-15 | NULL       |  1200000 |   NULL |     40 |
++-------+--------+--------+------------+------------+----------+--------+--------+
+16 rows in set (0.00 sec)
+
+13) 퇴사한 사원의 데이터를 삭제
+delete from employee
+where firedate is not null;
+
+mysql> delete from employee
+    -> where firedate is not null;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from employee; <수정 후>                        ;
++-------+--------+--------+------------+----------+----------+--------+--------+
+| perno | pname  | job    | hiredate   | firedate | sal      | bonus  | datpno |
++-------+--------+--------+------------+----------+----------+--------+--------+
+|     2 | 강원일 | 팀장   | 2010-08-02 | NULL     |  2000000 | 200000 |     10 |
+|     4 | 허태훈 | 과장   | 2010-05-02 | NULL     |  1800000 | 100000 |     10 |
+|     5 | 윤주옹 | 사원   | 2011-12-01 | NULL     |  1650000 |   NULL |     10 |
+|     7 | 배현직 | 본부장 | 2010-01-02 | NULL     |  2500000 | 200000 |     20 |
+|     8 | 전민철 | 이사   | 2010-01-02 | NULL     |  5000000 | 500000 |     30 |
+|     9 | 심승진 | CEO    | 2010-01-02 | NULL     | 10000000 |   NULL |     30 |
+|    11 | 유성원 | 대리   | 2012-02-01 | NULL     |  1600000 |   NULL |     30 |
+|    12 | 안재연 | 과장   | 2012-02-01 | NULL     |  2000000 | 200000 |     40 |
+|    13 | 김진수 | 사원   | 2012-03-02 | NULL     |   880000 |   NULL |     40 |
+|    14 | 김성하 | 사원   | 2012-04-01 | NULL     |  1000000 |   NULL |     40 |
+|    15 | 황철원 | 대리   | 2011-12-01 | NULL     |  1500000 | 150000 |     40 |
+|    16 | 엄효인 | 사원   | 2011-12-15 | NULL     |  1320000 |   NULL |     40 |
++-------+--------+--------+------------+----------+----------+--------+--------+
+12 rows in set (0.00 sec)
+
+mysql> select * from employee; <수정 전>
++-------+--------+--------+------------+------------+----------+--------+--------+
+| perno | pname  | job    | hiredate   | firedate   | sal      | bonus  | datpno |
++-------+--------+--------+------------+------------+----------+--------+--------+
+|     1 | 박청규 | 사원   | 2010-03-02 | 2012-08-31 |   968000 |   NULL |     10 |
+|     2 | 강원일 | 팀장   | 2010-08-02 | NULL       |  2000000 | 200000 |     10 |
+|     3 | 이봉수 | 부장   | 2010-01-02 | 2012-02-28 |  3000000 | 300000 |     10 |
+|     4 | 허태훈 | 과장   | 2010-05-02 | NULL       |  1800000 | 100000 |     10 |
+|     5 | 윤주옹 | 사원   | 2011-12-01 | NULL       |  1650000 |   NULL |     10 |
+|     6 | 김태환 | 대리   | 2010-08-01 | 2012-04-30 |  1700000 |   NULL |     20 |
+|     7 | 배현직 | 본부장 | 2010-01-02 | NULL       |  2500000 | 200000 |     20 |
+|     8 | 전민철 | 이사   | 2010-01-02 | NULL       |  5000000 | 500000 |     30 |
+|     9 | 심승진 | CEO    | 2010-01-02 | NULL       | 10000000 |   NULL |     30 |
+|    10 | 강대원 | 과장   | 2010-04-02 | 2012-08-31 |  2200000 | 200000 |     30 |
+|    11 | 유성원 | 대리   | 2012-02-01 | NULL       |  1600000 |   NULL |     30 |
+|    12 | 안재연 | 과장   | 2012-02-01 | NULL       |  2000000 | 200000 |     40 |
+|    13 | 김진수 | 사원   | 2012-03-02 | NULL       |   880000 |   NULL |     40 |
+|    14 | 김성하 | 사원   | 2012-04-01 | NULL       |  1000000 |   NULL |     40 |
+|    15 | 황철원 | 대리   | 2011-12-01 | NULL       |  1500000 | 150000 |     40 |
+|    16 | 엄효인 | 사원   | 2011-12-15 | NULL       |  1320000 |   NULL |     40 |
++-------+--------+--------+------------+------------+----------+--------+--------+
+16 rows in set (0.00 sec)
+
+
+조인
+두개 이상의 테이블을 묶어서 하나의 결과 집합으로 나타낸다.
+
+*innerJoin
+select <목록>
+from <첫번째 테이블>
+inner join <두번째 테이블>
+on <조인될 조건>
+where 검색 조건
+ex) 
+select * from usertable
+inner join buytable
+on buytable.아이디 = usertable.아이디
+where usertable.아이디 = 'BBK';
+
+create table userTable(
+	아이디 varchar(3) primary key,
+	이름 varchar(10) not null,
+	생년월일 varchar(10) not null,
+	지역 varchar(20) not null,
+	모바일 varchar(11) not null
+)
+create table buytable(
+	순번 int primary key auto_increment,
+	아이디 varchar(3) not null,
+	물품명 varchar(10),
+	단가 int not null,
+	수량 int not null,
+	foreign key(아이디) references userTable(아이디)
+);
+
+1. 아이디 BBK의 구매항목과 전제정보를 조회
+select * from userTable
+inner join buyTable
+on buyTable.아이디 = userTable.아이디
+where userTable.아이디 = "BBK";
+mysql> select * from userTable
+    -> inner join buyTable
+    -> on buyTable.아이디 = userTable.아이디
+    -> where userTable.아이디 = "BBK";
++--------+--------+----------+------+-------------+------+--------+------------+------+------+
+| 아이디 | 이름   | 생년월일 | 지역 | 모바일      | 순번 | 아이디 | 물품명     | 단가 | 수량 |
++--------+--------+----------+------+-------------+------+--------+------------+------+------+
+| BBK    | 바비킴 | 1973     | 서울 | 01000001234 |    4 | BBK    | 모니터전자 |  200 |    5 |
+| BBK    | 바비킴 | 1973     | 서울 | 01000001234 |    6 | BBK    | 메모리전자 |   80 |   10 |
+| BBK    | 바비킴 | 1973     | 서울 | 01000001234 |   10 | BBK    | 운동화신발 |   30 |    2 |
+| BBK    | 바비킴 | 1973     | 서울 | 01000001234 |   12 | BBK    | 운동화신발 |   30 |    2 |
++--------+--------+----------+------+-------------+------+--------+------------+------+------+
+4 rows in set (0.00 sec)
+
+select userTable.아이디, userTable.이름, buyTable.물품명, buyTable.단가, buyTable.수량
+from userTable
+inner join buyTable
+on buyTable.아이디 = userTable.아이디
+where userTable.아이디 = "BBK";
+
+mysql> select userTable.아이디, userTable.이름, buyTable.물품명, buyTable.단가, buyTable.수량
+    -> from userTable
+    -> inner join buyTable
+    -> on buyTable.아이디 = userTable.아이디
+    -> where userTable.아이디 = "BBK";
++--------+--------+------------+------+------+
+| 아이디 | 이름   | 물품명     | 단가 | 수량 |
++--------+--------+------------+------+------+
+| BBK    | 바비킴 | 모니터전자 |  200 |    5 |
+| BBK    | 바비킴 | 메모리전자 |   80 |   10 |
+| BBK    | 바비킴 | 운동화신발 |   30 |    2 |
+| BBK    | 바비킴 | 운동화신발 |   30 |    2 |
++--------+--------+------------+------+------+
+4 rows in set (0.00 sec)
+
+2. 제품을 구매한회원들의 아이디와 지역과 이름을 조회(아이디 중복없이)
+select distinct u.아이디, u.지역, u.이름
+from userTable u
+inner join buyTable b
+on b.아이디 = u.아이디
+mysql> select distinct u.아이디, u.지역, u.이름
+    -> from userTable u
+    -> inner join buyTable b
+    -> on b.아이디 = u.아이디;
++--------+------+--------+
+| 아이디 | 지역 | 이름   |
++--------+------+--------+
+| BBK    | 서울 | 바비킴 |
+| EJW    | 경북 | 은지원 |
+| JYP    | 경기 | 조용필 |
+| KBS    | 경남 | 김범수 |
+| SSK    | 서울 | 성시경 |
++--------+------+--------+
+5 rows in set (0.00 sec)

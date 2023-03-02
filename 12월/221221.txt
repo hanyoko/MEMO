@@ -1,0 +1,60 @@
+쿠키와 세션 
+1. 사용자가 웹페이지에 접속할 때 브라우져에 저장하는 데이터 웹페이지에서는 쿠키를 확인하여 로그인이나 상태등을 확인할 수 있습니다.
+
+1) 쿠키생성
+//setcookie(키, 값) 함수를 호출하면 쿠키를 생성
+setcookie("username", "green") 함수를 호출하면 쿠키를 생성
+setcookie(키, 값, 유지시간)
+유지시간 : time()+60
+php 슈퍼글로벌 내장 배열변수
+$_COOKIE["username"]
+
+2)쿠키삭제
+setcookie("username","",time()-1)
+
+2. 세션
+세션은 서버에 정보를 저장하고 사용자 컴퓨터에서는 세션의 아이디만을 저장해둠
+브라우저에 직접 값을 저장하지 않으므로 쿠키봗 보안에 강함.
+세션을 사용하거나 생성할 때는 session_start 함수를 호출함.
+1)  세션 생성
+session_start();
+$_SESSION["keyname1"] = "green";
+$_SESSION["keyname2"] = "123456";
+
+2) 세션 삭제
+session_start();
+session_unset();	//모든 세션 삭제
+unset($_SESSION['keyname1'])		//개별 세션 삭제
+
+
+회원가입 폼 만들기
+1. 테이블 생성
+create table member(
+	no int primary key auto_increment,
+	id varchar(16) not null,
+	pw varchar(20) not null,
+	date datetime,
+	tel varchar(11) not null,
+	name varchar(20)	
+);
+
+로그인
+아이디와 비번 입력시
+1) member 테이블에 아이디가 있는지 체크
+2) 아이디로 조회한 레코드의 비밀번호가 입력한 비밀번호가 맞는지 체크
+3) 세션 스타트
+세션값으로 아이디 비번 할당
+4) header.php
+세션이 있을 경우 "누구누구님 안녕하세요" 출력
+로그아웃 메뉴 생성
+세션이 없으면 
+로그인 회원가입 메뉴 생성
+
+insert문 쿼리 요청시
+결과는 true false
+
+select 문 쿼리 요청 시
+$result = mysqli_query($conn, $sql);
+mysqli_num_rows($result)란?
+결과 셋의 총 레코드 수를 반환
+

@@ -1,0 +1,235 @@
+positon 위치
+html 요소의 위치를 결정하는 방식을 설정
+위치를 결정하는 방식
+1. static 정적위치 - default
+position 속성이 static 일 때는 움직이지않는다.
+
+2. relative 상대위치
+원래 있던 위치에서 움직이고 싶을 때 사용
+
+3. absolute 절대위치
+원래 있던 위치는 무시된다. 브라우저를 기준으로 설정된다.
+-> 이미 있던 자리에서 움직이는 것이 아니라 브라우저의 시작점(가장 왼쪽 위 구석 부분)에서 입력한 크기만큼 움직인다.
+if, 사용하고 top left right bottom 중 하나를 같이 사용하지않으면 의미가 없다.
+
+
+4. fixed 고정위치
+스크롤 되지 않도록 핀으로 고정시켜둔 것. 움직이지않는다.
+fixed를 시키고 스크롤을 움직이면 fixed를 제외한 다른 부분은 움직이지만 fixed 된 부분은 고정되어있다.
+
+div:nth-child(2) {
+            position: fixed;
+            right: 0;
+            top: 0;
+        }
+=> 두번째 div를 고정한다 오른쪽 위에
+
+        body > div {
+            width: 1000px;
+            margin: 0 auto;
+            background-color: lightblue;
+            position: relative; 
+            height: 800px;
+        }
+        div div {
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+=> absolute를 사용할 때 relative가 없으면 기준점은 브라우저가 된다. 그래서 relative를 같이 사용해서 relative를 기준점으로 만들고 absolute를 이용하는 것이 좋다.
+
+
+top 속성
+left 속성
+right 속성
+bottom 속성
+
+    <style>
+        li::after {
+	content: "";
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="">menu1</a>ddddd</li>
+        <li><a href="">menu2</a></li>
+        <li><a href="">menu3</a></li>
+        <li><a href="">menu4</a></li>
+    </ul>
+
+::after를 사용할 때 태그의 가장 뒤가 아닌 컨텐츠의 뒤 (다시 한번 기억하기.★>
+thus, ddddd의 뒤에 content: "" 값에 넣은 내용이 들어간다.
+*많은 양의 같은 내용을 적을 때 자주 이용한다.
+
+    <style>
+        li::after {
+            content: "";
+            display: block;
+            width: 30px;
+            height: 6px;
+            background-color: tomato;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="">menu1</a></li>
+        <li><a href="">menu2</a></li>
+        <li><a href="">menu3</a></li>
+        <li><a href="">menu4</a></li>
+    </ul>
+
+=> display: block; 을 이용해서 글씨 다음에 바 형식의 블럭을 만들 수 있다.
+
+        li::after {
+            content: "";
+            display: block;
+            width: 30px;
+            height: 6px;
+            background-color: tomato;
+            position: relative;
+            bottom: 20px;
+        }
+만들어진 바 블럭을 움직이고 싶으면 positon: relative;를 이용해서 값을 주면 움직인다.
+default값이 static이라서 그냥 값을 주면 움직이지 않는다는 것을 기억. !
+
+
+        li {
+            position: relative;
+        }
+        li::after {
+            content: "";
+            display: block;
+            width: 30px;
+            height: 6px;
+            background-color: tomato;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+=> li {} 를 입력하지 않고 absolute를 주면 브라우저 기준이 되기 때문에 브라우저 왼쪽 위에 모두 모이게 된다.
+thus, li { position: relative } 값을 주면 글자의 위로 적용이 된다.
+
+        li {
+            position: relative;
+        }
+        li::after {
+            content: "";
+            display: none;
+            width: 30px;
+            height: 6px;
+            background-color: tomato;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        li:hover::after {
+            display: block;
+        }
+=> 보통 그대로 두지는 않고 마우스를 올렸을 때나 클릭했을 때 많이 사용한다.
+그래서 display를 none으로 두고  li:hover::after { display: block; } 와 같은 형식을 이용해서 사용한다.
+
+        li {
+            position: relative;
+        }
+        li::after {
+            content: "";
+            display: block;
+            width: 0;
+            height: 6px;
+            background-color: tomato;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: 0.5s;
+        }
+        li:hover::after {
+            width: 30px;
+        }
+
+=> 마우스를 올렸을 때 점점 나오게 만드는 방법. hover 값이 display를 주는 것이 아니라 width: 30px;을 주고
+after 값에 display: block;을 주고 transition: 0.5s;을 주면 마우스를 올렸을 때 0.5초 시간 간격을 두고 나오게 된다.
+
+        li {
+            position: relative;
+            padding-left: 30px;
+            list-style: none;
+        }
+        li::after {
+            content: "";
+            display: block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: tomato;
+            position: absolute;
+            left: 0;
+            bottom: -20px;
+            transition: 1s;
+        }
+        li:hover::after {
+            width: 30px;
+        }
+
+=> border-radius: 50%;를 이용하면 동그라마를 만들 수 있고 아래로 내릴 때는 (-) 음수값을 주면 된다.
+
+
+        li {
+            position: relative;
+            padding-left: 30px;
+            list-style: none;
+            overflow: hidden; /* default 값은 visiable */
+        }
+        li::after {
+            content: "";
+            display: block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: tomato;
+            position: absolute;
+            left: 0;
+            bottom: -30px;
+            transition: 0.5s;
+        }
+        li:hover::after {
+            bottom: 3px;
+        }
+
+= overflow: hidden;을 이용해서 눈에 보이는 바 블럭을 숨길 수 있다. /* default 값은 visiable */
+그리고 hover 값에 bottom: px; 을 주면 보이게 된다.
+-> 바로 보이는 형태는 숨겼지만 마우스를 올렸을 때(hover) 상태의 형태는 나타나게 만드는 것.
+
+
+transform 속성
+html 요소의 모양 크기 위치 등을 변경
+1. 선택 요소를 움직임
+translate(X, Y) / translateX(x) / translateY(y) / translateZ(z)
+
+2. 선택 요소 회전
+rotate(zdeg) / rotateX(xdeg) / retateY(ydeg)
+
+3. 선택 요소의 크기 변경
+scale(x, y) / scaleX(x) / retateY(y)
+
+4. 선택 요소의 기울이기 변경
+skewX(xdeg) / skewY(ydeg)
+
+    <style>
+        div {
+            height: 100px;
+            width: 100px;
+            transform: rotate(66deg);
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+
+            transform: ; 를 수정해서 축을 변경
+ex) transform: skewX(45deg); 기울이기

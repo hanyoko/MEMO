@@ -1,0 +1,20 @@
+todo List 앱 구현하기
+상단
+1. 입력해서 내용추가하기
+2. 상태관리 (useState(), useRudecer())
+202201_스마트문화앱 구현_이름(알집)
+
+[COMETIC-SERVER]
+ "dependencies": {
+    "cors": "^2.8.5",		//서버를 ㅁ
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1",	//서버에 파일을 올릴 때 사용하는 라이브러리
+    "mysql": "^2.18.1"
+  }
+
+파라미터 전달하기
+
+axios.get('')
+axios.put('',{})
+axios.post('',{})
+axios.delete('')

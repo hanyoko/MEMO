@@ -1,0 +1,178 @@
+제어문
+
+1. if문
+숫자를 입력받았는데 홀수, 짝수
+let num = prompt("숫자를 입력하세요")
+입력을 하지 않거나 문자를 입력하면
+잘못 입력하셨습니다.
+num = null => false => true
+
+parseInt(num) => NaN
+if(!num || isNaN(parseInt(num))){
+
+}else if(parseInt(num) % 2){
+
+}else {
+}
+삼항 연산자
+let result = num1>num2 ? "크다" : "작다";
+
+2. switch문
+switch(num){
+	case 1:
+	console.log("1입니다.");
+	break;
+	case 2:
+	console.log("2입니다.")
+	break;
+	default:
+	console.log("3입니다.");
+	break;
+}
+배열
+let arr = []
+let arr = [1,2,3,4,5,6]
+arr[2]
+배열의 길이 arr.length
+pop() 맨끝의 배열요소를 삭제하고 반환
+push() 맨끝에 배열요소를 추가
+shift() 맨앞에 배열요소를 삭제
+unshift() 맨앞에 배열요소를 추가
+forEach() 배열의 길이만큼 반복하며 배열요소, 배열요소의 인덱스, 배열자체를 매개변수로 받을 수 있다.
+let arr = ["a","b","c","d","e"]
+splice(startindex, num, item)
+splice(3,1,"f","g")
+
+Math내장객체
+Math.random()
+0보다 크고 1보다 작은 소수
+0.0123123121321~0.94589456645464
+0~4
+function getRndInteger(min,max){
+	return Math.floor(Math.random()*(max-min+1))+min;
+}
+getRndInteger(2,10)
+Math.random()*(10-2+1)
+Math.random()*9
+0~8 + 2
+2~10
+
+
+String
+1) length 문자열의 길이
+let str = "green"
+str.length
+2) indexOf("") 특정 문자열 안에 해당문자가 존재하는지
+존재하면 시작하는 index를 반환
+없으면 -1을 반환
+let str1 = "안녕하세요 오늘은 금요일 입니다. 금요일 입니다."
+str1.indexOf("금요일");
+str1.lastIndexOf("금요일")
+3) lastIndexOf("")
+4) slice(start, end) 문자열에서 해당부분을 반환
+let str = "Apple, Banana, Kiwi";
+let res = str.slice(7,13)
+
+let str = "Apple, Banana, Kiwi";
+undefined
+str.slice(7,12)
+'Banan'
+str.slice(7)
+'Banana, Kiwi'
+str.slice(-1)
+'i'
+str.slice(-5)
+' Kiwi'
+str
+'Apple, Banana, Kiwi'	//문자열에 문제가 생기지는 않는다.
+
+5)substring(start,end) 음수를 허용하지않음
+6)substr(start,num) 시작위치와 잘라낼 갯수를 파라이터로 해당부분을 반환
+7)replace() 특정문자열을 지정한 문자열 변경
+바꾸려는 문자열이 여러개 있을 경우 처음 발견된 문자열만 변경된다.
+8)toUpperCase()/ toLowerCase
+대문자로 변경 / 소문자로 변경
+9)concat()
+2개 이상의 문자열을 하나의 문자열로 합치는 함수입니다.
+
+let text1 = "Hello"
+undefined
+let text2 = "World"
+undefined
+let text3 = text1.concat("",text2)
+undefined
+text3
+'HelloWorld'
+let text4 = text1 + " " + text2
+undefined
+text4
+'Hello World'
+
+10)trim() 문자열의 앞, 뒤 공백을 제거하는 함수
+let str = "     hello world    "
+undefined
+str
+'     hello world    '
+str.trim()
+'hello world'
+
+11)padStart() / padEnd()
+문자열의 앞,뒤 공백을 제거하는 함수
+let str2 = "5"
+undefined
+str2 = str2.padStart(4,0)
+'0005'
+str2 = str2.padEnd(10,1)
+'0005111111'
+12)split()
+문자열을 배열로
+특정 구분자를 기준으로 문자열을 분리해서 배열로 반환 !!!!
+
+Array 객체
+
+
+join() 배열을 문자열로 반환
+reverse()
+indexOf()
+split()
+slice(start,end)
+sort()
+concat()
+
+1. 배열을 문자로 만들기
+const fruits = ["포도","딸기","수박","사과"];
+
+2. 문자를 배열로 만들기
+const str2 = "딸기,수박,귤,체리,포도";
+
+3. 배열반전(원래 배열을 반전시키고 리턴함 !!!!!)
+const arr2 = [1,2,3,4,5];
+
+4. 배열의 일부분을 새로운 배열로 생성
+const arr3 = [1,2,3,4,5];
+arr4 = [2,3,4]
+
+
+
+객체 (object)
+let obj1 = {
+	name: "green";	//키 name 값 "green"
+	age : 30,		//키 age 값 30
+}
+obj1.name 또는 obj1["name"]
+obj1.age 또는 obj1["age"]
+obj1.isJob = true;
+객체 리터럴 선언
+let obj2 = {};
+객체 생성자 선언
+let obj3 = new Object();
+
+let arr2 = [];
+let arr2 = new Array();
+
+find() 배열에서 해당하는 하나의 값을 찾을시 반환하고 종료
+★★★★★filter() 조건에 해당하는 배열요소를 새로운 배열로 반환
+★★★★★map() 배열에서 배열요소의 값을 변형해서 새로운 배열로 반환해준다.
+
+
+

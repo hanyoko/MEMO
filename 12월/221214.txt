@@ -1,0 +1,60 @@
+BOM Browser Object Model
+브라우져 객체 모델
+Window
+DOM BOM Javascript
+
+BOM
+navigator
+사용자의 브라우져와 운영체제 정보를 제공하는 객체
+navigator.appCodeName 방문자의 브라우져 코드명을 반환
+navigator.appName 방문자의 브라우져 이름을 반환
+navigator.appName 방문자의 브라우져 이름을 반환
+navigator.appVersion 방문자의 브라우져 버전 정보를 반환
+navigator.language 방문자의 브라우져 사용언어를 반환
+navigator.userAgent 방문자의 브라우져와 운영체제 종합 정보를 제공
+navigator.platform 방문자의 브라우져를 실행하는 운영체제를 반환
+navigator.product 방문자의 브라우져 사용 엔진 이름 반환.
+
+history
+사용자가 방문한 사이트와 다음 방문한 사이트로 다시 돌아갈 수 있는 속성과 메소드를 제공
+다시 돌아갈 수 있는 속성과 메소드를 제공
+history.length 방문기록에 저장된 목록이 개수를 반환
+history.back() 이전 방문한 페이지로 이동
+history.forward() 다음 방문한 페이지로 이동
+history.go(-2) 2단계 이전 페이지로 이동
+
+location
+브라우져 주소창에 url에 대한 정보와 새로고침 기능을 제공
+도메인) http://www.example.com:8080/search?q=devmo#test
+location.host url의 도메인과 포트 반환 www.example.com:8080
+location.hostname url의 도메인을 반환 www.example.com
+location.href url을 반환 http://www.example.com:8080/search?q=devmo#test
+location.pathname url 경로 반환 /search
+location.port 포트반환 8080
+location.protocal 프로토콜 반환 http:
+location.search url에 붙은 매개변수 반환(?뒤의 값) ?q=devmo
+location.hash 주소 값에 붙어있는 anchor 값 반환
+
+reload() 현재 페이지 새로고침
+replace(url) 새로운 주소 이동
+assign(url) 새로운 주소 이동
+
+* 새로운 페이지 이동하기
+location.assign("https://naver.com")
+location.replace("https://naver.com")
+window.location = "https://naver.com"
+
+
+XMLHttpRequest
+
+
+html+css+javascript+php+mysql+react+redux+typescript+node
++iot(파이썬, 리눅스, 전기기초, 라즈베리파이)
+
+php,mysql,node 백엔드
+html+css+javascript+react+typescript 프론트엔드
+
+
+echo 출력
+
+var_dump()

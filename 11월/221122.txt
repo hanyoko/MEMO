@@ -1,0 +1,74 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| employee           |
+| employment         |
+| form               |
+| information_schema |0
+| members            |
+| mysql              |
+| newexam            |
+| performance_schema |
+| sakila             |
+| sys                |
+| test               |
+| ulsanmember        |
+| world              |
++--------------------+
+13 rows in set (0.00 sec)
+
+mysql> use ulsanmember;
+Database changed
+mysql> create table ulsan(
+    -> email varchar(20),
+    -> name varchar(10),
+    -> pw varchar(20),
+    -> year int,
+    -> month int,
+    -> day int,
+    -> tel int,
+    -> location varchar(10),
+    -> gender varchar(10)
+    -> );
+Query OK, 0 rows affected (0.05 sec)
+
+insert into ulsan (email, name, pw, year, month, day, tel, location) values('kooy0114@gmail.com','고요한','1234','1996', '1', '14', '01020605260', '강릉')성공했습니다.
+
+create table emp(
+empno int,
+ename varchar(5).
+job varchar(5),
+mgr int,
+hiredate varchar(10),
+sal int,
+comm varchar(10),
+deptno int
+);
+
+insert into emp (empno, ename, job, mgr, hiredate, sal, deptno) values('7369','개나리','사원','7902','00/12/17','200','20');
+insert into emp (empno, ename, job, mgr, hiredate, sal, deptno) values('7499','진달래','주임','7698','01/12/15','360','20');
+insert into emp (empno, ename, job, mgr, hiredate, sal, deptno) values('7521','라일락','주임','7698','01/02/17','355','30');
+insert into emp (empno, ename, job, mgr, hiredate, sal, deptno) values('7654','손흥민','과장','7839','02/01/11','400','30');
+insert into emp (empno, ename, job, mgr, hiredate, sal, deptno) values('7698','박지성','주임','7698','00/07/12','325','20');
+insert into emp (empno, ename, job, mgr, hiredate, sal, deptno) values('7782','김연아','사원','7698','01/12/17','225','10');
+insert into emp (empno, ename, job, mgr, hiredate, sal, deptno) values('7778','무궁화','사원','7839','05/11/14','200','10');
+insert into emp (empno, ename, job, mgr, hiredate, sal, deptno) values('7839','홍길동','부장','7566','06/06/17','450','20');
+insert into emp (empno, ename, job, mgr, hiredate, sal, deptno) values('7844','송강호','과장','7566','18/09/17','400','30');
+insert into emp (empno, ename, job, mgr, hiredate, sal, deptno) values('7876','정우성','대표','7839','04/09/09','500','30');
+insert into emp (empno, ename, job, mgr, hiredate, sal, deptno) values('7900','김혜수','사원','7902','01/12/03','200','20');
+
+mysql> create table emp(
+empno int,
+ename varchar(5),
+job varchar(5),
+mgr int,
+hiredate varchar(10),
+sal int,
+comm varchar(10),
+deptno int
+);
+
+
+-------------------------------------------------------------------------
+호스팅

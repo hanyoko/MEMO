@@ -1,0 +1,39 @@
+Context ---> 전역에서 사용가능
+1. context 생성하기 
+export const userContext = createContext("green")
+2. context 사용하기
+const text = useContext(userContext) // "green"
+3. context 값 지정
+<userContext.Provider value="blue">
+<App />
+</userContext.Provider>
+props 자식 컴포넌트에게만 전달
+
+제네릭타입
+전달받은 타입을 사용하도록 한다
+사용하는 쪽에서 타입을 결정
+functioni getSize<T>(arr:string[]):number{
+	return arr.length
+}
+getSize<number>(['a','b','c'])	//3
+getSize<number>([1,2,3,4])
+getSize<boolean>([true,false])
+
+const stateContext = createContext(null)
+const dispatchContext = createContext(null)
+stateContext <--- state
+dispatchContext <--- dispatch
+
+todo??? ---> 
+
+stateContext <---- state
+dispatchContext <--- dispatch
+
+const 생성히기
+const TodoStateContext = createContext(초기값)
+context사용
+const statee = useContext(TodoStateContext)	//"abc"
+context 값변경
+<TodoStateContext.Provider value="aaaaaa">
+	
+</TodoStateContext.Provider>

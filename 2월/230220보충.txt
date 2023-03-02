@@ -1,0 +1,100 @@
+useState(초기값) ===> [상태, 상태업데이트함수]
+useReducer(리듀서함수, 상태초기값)
+===> [상태, dispatch 함수]
+
+function reducer(state, action){
+	switch(action.type){
+		case "increase":
+			return state + 1;	//새로운 상태값
+		case "decrease":
+			return state - 1;	//새로운 상태값
+	}
+}
+const [state, dispatch] = useReducer(reducer, 0)
+dispatch({type: "increase"})
+dispatch({type: "decrease"})
+
+리덕스 라이브러리 !!!!!
+javascript, vue, angular, react 같이 사용할 수 있는 라이브러리
+
+상태관리 ------> store
+1. 스토어 생성하기
+const store = Redux.createStore(리듀서함수)
+2. 상태값 반환하기
+store.getState()
+3. 상태값 변경하기
+store.dispatch({
+	type: ""
+})
+4. 구독 내장함수
+store.subscribe(함수)
+* Redux 장점
+상태를 예측 가능하게 만든다.
+유지보수
+디버깅에 유리 (redux dev tool: 크롬확장)
+https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.1/redux.js
+
+-----> todolist         
+
+react with redux
+설치
+npm install redux
+npm install react-redux
+npm install --save @redux-devtools/extension
+1. store 생성하기
+const store = createStore(리덕스모듈)
+** 모든 컴포넌트에서 store 사용할 수 있도록 설정
+<Provider store={store}>
+	<App />
+</Provider>
+2. useDispatch() 상태 업데이트를 요청할 dispatch 리턴
+dispatch가 호출되면 액션이 발생 ---> 리듀서 호출 ---> 상태 업데이트
+const dispatch = useDispatch();
+dispatch({액션객체})
+3. useSelector((state)=>state.number) 상태값을 리턴해준다
+
+*리덕스모듈
+1. 액션타입
+2. 액션타입함수(있어도 되고 없어도 된다.)
+3. 리듀서 함수
+
+
+상태
+[
+{
+	id: 1,
+	text: "입력값",
+	isDone: false
+},
+{
+	id: 2,
+	text: "입력값",
+	isDone: false
+},
+{
+	id: 3,
+	text: "입력값",
+	isDone: false
+}
+]
+
+업데이트
+1. 할일을 추가할 수 있어야한다. ADD_TODO
+추가할 할일
+{
+	id: 1,
+	text: "입력값",
+	isDone: false
+},
+2. 할일 삭제 DEL_TODO
+id
+3. 할일의 isDone 반전 TOGGLE_TODO
+id
+
+
+
+
+
+
+
+

@@ -1,0 +1,629 @@
+https://blog.naver.com/greewebdesign 동영상 강의
+blog.naver.com/pink_candy02 정보 및 자료
+https://cafe.naver.com/pinkwebdesign 교육원 카페
+https://developer.mozilla.org/ko/ MBN 개발 관련 정보 사이트
+https://velog.io/ velog 공부 내용 정리 블로그
+https://www.w3schools.com/ 개발 공부(예습 및 복습) 사이트
+
+html
+css
+javascript
+php
+
+html의 확장자는 html
+css의 확장자는 css
+javascript의 확장자는 js
+
+메모장에 기록하고 저장할 때 확장자를 html으로 저장하면 html형식으로 열린다
+<> : 꺽새 (태그)
+
+<a href="https://naver.com">네이버 바로가기</a> 형식으로 작성하고 열면 네이버 바로가기 링크가 만들어진다.
+<> : 태그
+href : 속성
+
+<a href="http://google.com" target="_blank">구글 바로가기(새창)</a>
+ target="_blank" : 빈칸과 함께 target을 넣으면 새창으로 열리는 바로가기 만들 수 있다.
+
+태그 안에 태그를 넣을 때는 들여쓰기 해야한다.
+
+<head>
+	<title>재미있는 html</title>
+</head>
+<body>
+	<a href="https://naver.com">네이버 바로가기</a>
+	<a href="http://google.com">구글 바로가기</a>
+	<a href="http://google.com" target="_blank">구글 바로가기(새창)</a>
+</body>
+
+head는 제목을 알려주는 역할
+화면을 나타내는 것은 body 태그를 이용해서 작성
+
+<title>뒤에 원하는 제목을 붙으면 사이트 창에 제목이 생김
+
+<html>
+	<head>
+		<title>재미있는 html</title>
+	</head>
+	<body>
+		<a href="https://naver.com">네이버 바로가기</a>
+		<a href="http://google.com">구글 바로가기</a>
+		<a href="http://google.com" target="_blank">구글 바로가기(새창)</a>
+	</body>
+</html>
+
+<html>로 태그들을 감싸주어야함
+
+<!DOCTYPE html>
+DTD 선언
+html4 -> Xhtml -> html5 으로 변화했다
+어떤 버전의 html으로 작성되었는지를 알려주는 것
+내가 작성한 html의 형식을 알려주고 그 버전으로 해석할 수 있도록
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>재미있는 html</title>
+	</head>
+	<body>
+		<a href="https://naver.com">네이버 바로가기</a>
+		<a href="http://google.com">구글 바로가기</a>
+		<a href="http://google.com" target="_blank">구글 바로가기(새창)</a>
+	</body>
+</html>
+
+<meta charset="urf-8">
+파일을 저장할 때 인코딩 코드를 맞춰야 한글이 깨지지 않고 정상적으로 작동한다
+만약 다른 인코딩 코드로 저장하면 한글이 깨져서 글자를 인식할 수 없다.
+
+
+<meta charset="utf-8">' 
+meta는 요소가 없어서 태그 닫기를 안 한다
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title> 주요태그</title>
+	</head>
+	<body>
+		<h1>첫번째 제목</h1>
+		<h2>두번째 제목</h2>
+		<h3>세번째 제목</h3>
+		<h4>네번째 제목</h4>
+		<h5>다섯번째 제목</h5>
+		<h6>여섯번째 제목</h6>
+	</body>
+</html>
+h1~6로 글자 크기를 나타낼 수 있다
+주로 1~4를 사용
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title> 주요태그</title>
+	</head>
+	<body>
+		<h1>첫번째 제목</h1>
+		<h2>두번째 제목</h2>
+		<h3>세번째 제목</h3>
+		<h4>네번째 제목</h4>
+		<h5>다섯번째 제목</h5>
+		<h6>여섯번째 제목</h6>
+		안녕하세요
+		오늘은 금요일
+		야호
+	</body>
+</html>
+
+안녕하세요 오늘은 금요일 야호가 줄바꿈이 되지 않는다
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title> 주요태그</title>
+	</head>
+	<body>
+		<h1>첫번째 제목</h1>
+		<h2>두번째 제목</h2>
+		<h3>세번째 제목</h3>
+		<h4>네번째 제목</h4>
+		<h5>다섯번째 제목</h5>
+		<h6>여섯번째 제목</h6>
+		안녕하세요<br/>
+		오늘은 금요일<br/>
+		야호
+	</body>
+</html>
+줄바꿈을 하고 싶을 때는 <br/>를 붙여주면 줄바꿈이 된다.
+
+
+<p></p> 태그는 문장
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title> 주요태그</title>
+	</head>
+	<body>
+		<h1>첫번째 제목</h1>
+		<h2>두번째 제목</h2>
+		<h3>세번째 제목</h3>
+		<h4>네번째 제목</h4>
+		<h5>다섯번째 제목</h5>
+		<h6>여섯번째 제목</h6>
+		<p>안녕하세요</p>
+		<p>오늘은 금요일</p>
+		<p>야호</p>
+		<img src="./images/banner2.jpg" />
+	</body>
+</html>
+
+사이트에 사진을 추가할 때
+<img src="./images/banner2.jpg" /> 태그를 이용해서 사진을 삽입할 수 있다.
+                폴더명/파일명
+./ 현재 내 위치(html파일)에 있는 파일을 말할 때
+if, 한단계 밖에 있는 폴더에 있을 때는 ../
+★이미지를 삽입할 때 src는 필수 속성★
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title> 주요태그</title>
+	</head>
+	<body>
+		<h1>첫번째 제목</h1>
+		<h2>두번째 제목</h2>
+		<h3>세번째 제목</h3>
+		<h4>네번째 제목</h4>
+		<h5>다섯번째 제목</h5>
+		<h6>여섯번째 제목</h6>
+		<p>안녕하세요</p>
+		<p>오늘은 금요일</p>
+		<p>야호</p>
+		<img src="./images/banner2.jpg" alt="립스틱을 바르고 있는 젊은 여자" title="곧 쉬는시간 야호" />
+		<img src="./images/bestproduct1.png" alt="사진" title="사진" />
+	</body>
+</html>
+
+alt="" title="" />
+alt="립스틱을 바르고 있는 젊은 여자" title="곧 쉬는시간 야호" />
+사진에 마우스를 올리면 사진의 정보가 뜨게 만드는 속성.
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>목록태그</title>
+	</head>
+	<body>
+		<h1>다양한 목록태그</h1>
+		<h2>비순서형 목록 ul</h2>
+		<h3>카레재료들</h3>
+		<ul>
+			<li>돼지고기 500g</li>
+			<li>카레가루</li>
+			<li>감자 1개</li>
+			<li>양파 1개</li>
+			<li>버섯</li>
+		</ul>
+		<h2>순서형 목록 ol</h2>
+		<h3>카레 만들기</h3>
+		<ol>
+			<li>야채를 자른다</li>
+			<li>후라이팬에 야채들을 볶는다</li>
+			<li>카레가루를 물에 풀어 끓인다</li>
+			<li>고기와 야채를 넣는다</li>
+		</ol>
+	</body>
+</html>
+
+목록들을 나열하기
+<li> list라는 태그
+목록을 묶어줄 때는 ul과 ol을 이용한다
+ul는 비순서형 목록을 작성할 때, ol은 순서형 목록을 작성할 때 사용.
+
+
+	
+html	head	title
+	body	h2
+		h3
+		ul	li
+			li
+			li
+		ol	li
+			li
+			li
+
+html의 자식요소는 head와 body이 된다. title과 h2는 html의 자식요소가 될 수 없다
+★ul 태그 안에는 li만 들어갈 수 있다.
+->title을 적는 등의 새로운 태그를 작성하고 싶을 때는 li 뒤에 적을 수 있다.
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>목록태그</title>
+	</head>
+	<body>
+		<h1>다양한 목록태그</h1>
+		<h2>비순서형 목록 ul</h2>
+		<h3>카레재료들</h3>
+		<ul>
+			<li>돼지고기 500g</li>
+			<li>카레가루</li>
+			<li>감자 1개</li>
+			<li>양파 1개</li>
+			<li>버섯</li>
+		</ul>
+		<h2>순서형 목록 ol</h2>
+		<h3>카레 만들기</h3>
+		<ol>
+			<li>야채를 자른다</li>
+			<li>후라이팬에 야채들을 볶는다</li>
+			<li>카레가루를 물에 풀어 끓인다</li>
+			<li>고기와 야채를 넣는다</li>
+		</ol>
+		<h2>정의형 목록</h2>
+		<dl>
+			<dt>html이란?</dt>
+			<dd>hyper text markup language약자이다. 웹페이지에서 다른 페이지로 이동할 수 있도록 하는 기능을 가진 문서이다.</dd>
+		</dl>
+	</body>
+</html>
+
+정의형목록을 만들 때는 dl 안에 dt(제목)와 dd(내용)를 이용해 작성한다.
+
+
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset-"utf-8">
+		<title>예제</title>
+	</head>
+	<body>
+		<h1>과목별 참고도서 목록</h1>
+		<ul>
+			<li>IT기술의 이해</li>
+		</ul>
+		<ol>
+			<li>최윤철, 임순범, 한탁돈 공저, 컴퓨처와 IT 기술의 이해</li>
+			<li>D. Morley, C. Parker, Understanding Computers 15th Ed.</li>
+			<li>G. Shelly, M. Vermaat, Disscovering Computers</li>
+		</ol>		
+		<ul>
+			<li>웹프로그래밍</li>
+		</ul>
+		<ol>
+			<li>임순범, 박희민 공저, HTML5 웹프로그래밍 입문</li>
+			<li>최윤철, 임순범 공저, 소셜미디어 시대의 인터넷 활용</li>
+			<li>B. McLaughlin, What is HTML5?</li>
+		</ol>
+		<h2>지정도서</h2>
+		<dl>
+			<dt>지정도서 서비스란?</dt>
+			<dd>수업에 필요한 주교재 및 참고문헌 등의 필수도서를 도서관 1층 대출/지정도서실에서 별도로 비치하여 관리하는 제도
+			<dt>신청기간</dt>
+			<dd>매년 1월 과 6월 둘째 주 학교 홈페이지에 공지</dd>
+		
+	</body>
+</html>
+
+텍스트 나열하기 코드
+
+
+
+테이블 태그 : 웹페이지에서 테이블 형태의 정보를 나타낼 때 사용
+<table></table>
+행 <tr></tr>
+셀 <td></td>
+제목셀 <th></th>
+테이블제목 <caption></caption>
+-> caption은 시각장애인 분들을 위한 태그
+<table border="1" cellspacing="0">
+테이블 선 굵기	행 간의 간격 조절하는 속성
+
+<!DOCTYPE>
+<html>
+	<head>
+		<title>테이블 태그</title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<h1>테이블 태그</h1>
+		<table border="1" cellspacing="0">
+			<caption>테이블 태그입니다.</caption>
+			<tr>
+				<td>1행 1열</td>
+				<td>1행 2열</td>
+				<td>1행 3열</td>
+				<td>1행 4열</td>
+			</tr>
+			<tr>
+				<td>2행 1열</td>
+				<td>2행 2열</td>
+				<td>2행 3열</td>
+				<td>2행 4열</td>
+			</tr>
+			<tr>
+				<td>3행 1열</td>
+				<td>3행 2열</td>
+				<td>3행 3열</td>
+				<td>3행 4열</td>
+			</tr>
+		</table>
+	</body>
+</html>
+
+행과 열을 가진 테이블 만드는 코드 형식
+
+<!DOCTYPE>
+<html>
+	<head>
+		<title>테이블 태그</title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<h1>테이블 태그</h1>
+		<table border="1" cellspacing="0" width="800">
+			<caption>테이블 태그입니다.</caption>
+			<tr>
+				<th>1행 1열</th>
+				<th>1행 2열</th>
+				<th>1행 3열</th>
+				<th>1행 4열</th>
+			</tr>
+			<tr>
+				<td>2행 1열</td>
+				<td>2행 2열</td>
+				<td>2행 3열</td>
+				<td>2행 4열</td>
+			</tr>
+			<tr>
+				<td>3행 1열</td>
+				<td>3행 2열</td>
+				<td>3행 3열</td>
+				<td>3행 4열</td>
+			</tr>
+		</table>
+	</body>
+</html>
+
+		<table border="1" cellspacing="0" width="500">
+			<caption>테이블 태그입니다.</caption>
+			<tr>
+				<th>1행 1열</th> 제목을 나타내는 행을 말한다
+
+<table>
+<tbody>
+<tfoot>
+<thead>
+<tr>
+<td>
+<th>
+<caption>
+
+<!DOCTYPE>
+<html>
+	<head>
+		<title>테이블 태그</title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<h1>테이블 태그</h1>
+		<table border="1" cellspacing="0" width="800">
+			<caption>테이블 태그입니다.</caption>
+			<tr>
+				<th>1행 1열</th>
+				<th>1행 2열</th>
+				<th colspan="2">1행 3열</th>
+			</tr>
+			<tr>
+				<td rowspan="2">2행 1열</td>
+				<td>2행 2열</td>
+				<td>2행 3열</td>
+				<td>2행 4열</td>
+			</tr>
+			<tr>
+				<td>3행 2열</td>
+				<td>3행 3열</td>
+				<td>3행 4열</td>
+			</tr>
+		</table>
+	</body>
+</html>
+
+colspan : 열 합치기 태그
+rowspan : 행 합치기 태그
+
+두개의 열을 합치기 할 때는 첫 열에 colspan="2"를 추가한 뒤 다음 열의 코드는 삭제
+두개의 행을 합치기 할 때는 첫 행에 rowspan="2"를 추가한 뒤 다음 행의 코드는 삭제
+
+<!DOCTYPE>
+<html>
+	<head>
+		<title>테이블 예제 02</title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<h1>테이블 예제 02</h1>
+		<table border="1" cellspacing="0" width="800">
+			<tr>
+				<th>장학명</th>
+				<th>신청시기</th>
+				<th>신청방법</th>
+				<th>제출서류</th>
+			</tr>
+			<tr>
+				<td>복지장학</td>
+				<td rowspan="4">12월 / 6월</td>
+				<td rowspan="5">uwins - 장학신청<br>(매학기 신청)</td>
+				<td>장애인증명서/가족관계증명서</td>
+			</tr>
+			<tr>
+				<td>공무원본인장학</td>
+				<td>재직증명서</td>
+			</tr>
+			<tr>
+				<td>행복나눔명예장학</td>
+				<td>신청서</td>
+			</tr>
+			<tr>
+				<td>행복나눔장학</td>
+				<td>신청서</td>
+			</tr>
+			<tr>
+				<td>가족장학</td>
+				<td>5월 / 11월</td>
+				<td>가족관계증명서</td>
+			</tr>
+			<tr>
+				<td>국가유공자본인장학</td>
+				<td rowspan="3">입학금<br>납부 전</td>
+				<td rowspan="2">학생복지팀 제출</td>
+				<td>교육지원대상자증명서</td>
+			</tr>
+			<tr>
+				<td>국가유공자자녀장학</td>
+				<td>대학수업료등 면제대상자증명서</td>
+			</tr>
+			<tr>
+				<td>교직원자녀장학 (교직원이 신청)</td>
+				<td>UWIN-원스탑</td>
+				<td>신청서, 재직증명서, 가족관계증명서</td>
+			</tr>
+	</body>
+</html>
+
+행 합치기는 rowspan="?" 이용해서 합쳐주면된다
+<td rowspan="5">uwins - 장학신청<br>(매학기 신청)</td>
+-> <br>을 이용해서 한칸 밑으로 내릴 수 있음
+
+
+<!DOCTYPE>
+<html>
+	<head>
+		<title>구 군별 행정구역 현황 (인구수, 세대수)</title>
+	</head>
+	<body>
+		<h1>구 군별 행정구역 현황 (인구수, 세대수)</h1>
+		<table border="1" cellspacing="0" width="800">
+			<tr>
+				<th colspan="2">구군별구분</th>
+				<th>계</th>
+				<th>중구</th>
+				<th>남구</th>
+				<th>동구</th>
+				<th>북구</th>
+				<th>울주군</th>
+			</tr>
+			<tr>
+				<td rowspan="4">읍면동</td>
+				<td>계</td>
+				<td>56</td>
+				<td>13</td>
+				<td>14</td>
+				<td>9</td>
+				<td>8</td>
+				<td>12</td>
+			</tr>
+			<tr>
+				<td>읍</td>
+				<td>6</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>6</td>
+			</tr>
+			<tr>
+				<td>면</td>
+				<td>6</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>6</td>
+			</tr>
+			<tr>
+				<td>동</td>
+				<td>44</td>
+				<td>13</td>
+				<td>14</td>
+				<td>9</td>
+				<td>8</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td colspan="2">면적(km2)</td>
+				<td>1,062.31</td>
+				<td>37.01</td>
+				<td>73.51</td>
+				<td>36.07</td>
+				<td>157.35</td>
+				<td>758.37</td>
+			</tr>
+			<tr>
+				<td colspan="2">세대수</td>
+				<td>482,650</td>
+				<td>93,633</td>
+				<td>138,512</td>
+				<td>66,201</td>
+				<td>85,815</td>
+				<td>98,489</td>
+			</tr>
+			<tr>
+				<td colspan="2">총인구<br>(주민등록+외국인))</td>
+				<td>1,139,343</td>
+				<td>215,129</td>
+				<td>318,575</td>
+				<td>157,257</td>
+				<td>220,426</td>
+				<td>227,956</td>
+			</tr>
+			<tr>
+				<td rowspan="3">주민등록</td>
+				<td>계</td>
+				<td>1,121,592</td>
+				<td>212,883</td>
+				<td>313,819</td>
+				<td>154,096</td>
+				<td>218,735</td>
+				<td>222,059</td>
+			</tr>
+			<tr>
+				<td>남</td>
+				<td>576,217</td>
+				<td>107,736</td>
+				<td>160,055</td>
+				<td>80,417</td>
+				<td>113,265</td>
+				<td>114,744</td>
+			</tr>
+			<tr>
+				<td>여</td>
+				<td>545,375</td>
+				<td>105,147</td>
+				<td>153,764</td>
+				<td>73,679</td>
+				<td>105,470</td>
+				<td>107,315</td>
+			</tr>
+			<tr>
+				<td colspan="2">외국인</td>
+				<td>17,751</td>
+				<td>2,246</td>
+				<td>4,756</td>
+				<td>3,161</td>
+				<td>1,691</td>
+				<td>5,897</td>
+			</tr>
+	</body>
+</html>
+
+울산광역시 구 군별 행정구역 현황표 코드 작성

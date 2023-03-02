@@ -1,0 +1,9 @@
+CSS : 반응형 웹
+
+미디어 쿼리 문법
+- screen을 주로 사용.
+★★★암기★★★
+@media only screen and (min-width: 400px) {...} 
+            ㄴ only l not 
+                      ㄴ미디어타입       ㄴ 속성: 속성값
+

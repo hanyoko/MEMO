@@ -1,0 +1,144 @@
+타입스크립트 !!!!!
+2012년에 발표 대규모 javascript 애플리케이션 개발
+microsoft 오픈 소스 프로그래밍 언어
+- 자바스크립트의 상위 집합
+- 자바스크립트를 사용, 모든 기능 포함
+- 자바스크립트에 포함되지 않는 새로운 기능
+- 정적인 언어
+
+* 자바스크립트와 가장 큰 차이 !
+자바스크립트는 동적인 언어이며 프로그램 구동 중에 타입이 다이나믹하게 변경되나
+타입스크립트는 정적인 언어이며 프로그램을 작성할 때 타입을 정의함 !!
+
+웹브라우져가 해석할 수 있는 언어
+html, css, javascript
+typescript ??
+
+scss ---> css
+typescript ---> javascript
+
+타입스크립트의 장점
+1. 버그를 줄이고 유지보수하기 쉬우며 질좋은 코드 작성에 용이하다.
+2. 강력한 타입으로 대규모 개발에 용이하다.
+3. 자바스크립트 라이브러리와의 편리한 사용
+4. 개발 도구에서의 강력한 지원
+
+프론트엔드 프레임워크와 타입스크립트
+리액트(React)
+리액트와 타입스크립트 호환성은 좋은 편
+- 간단한 옵션 추가만으로 타입스크립트를 사용할 수 있도록 지원
+뷰(Vue)
+뷰2.0부터 타입스크립트 사용가능
+뷰3.0부터 타입스크립트 공식 지원
+앵귤러(Angular)
+버전 2부터 타입스크립트를 기반으로 만들어졌고
+타입스크립트 권장하고 있다.
+
+*타입스크립트 사용하기
+Typescript 파일을 웹브라우져가 해석할 수 없다.
+typescript ------> javascript 변환
+트렌스 파일러로 변환 작업을 한다
+
+npm install -g typescript	- 타입스크립트 설치
+tsc typescript.ts
+https://www.typescriptlang.org
+
+
+자바스크립트 형식
+let str1 = "green";
+let num1 = 30;
+let boolean1 = true;
+
+타입스크립트 형식
+- 변수 선언 시 :(콜론)을 이용해서 타입을 설정해줘야한다.
+let str1:string = "green";
+let num1:number = 30
+let boolean1:boolean = true;
+
+tsc [파일명] [옵션--target es6]
+모듈시스템 정의
+tsc 파일명 --target es6 --module common.js
+ex) tsc test.ts --target es6 --module common.js
+.js 파일로 변환하기
+tsc test.ts
+를 하면 let이 생기기 전이라 letdl var로 자동 변환된다.
+
+tsc test.ts --target es6
+를 하면 es6 버전으로 변환되어 let이 적용된다.
+
+컴파일러 설정파일 만들기
+src -> ts 파일
+1. tsconfig.json 파일 생성
+include : 변환될 파일 지정
+complierOptions : 타입스크립트 컴파일러에 대한 옵션
+
+npm install -g typescript
+tsc init -> 초기화
+tsconfig.json 생성됨
+tsc [파일이름] [옵션]
+tsc
+
+let str1 = "green"
+str1 = 20
+타입스크립트에 작성했을 때
+Type 'number' is not assignable to type 'string'. 오류가 생긴다
+따라서,
+let str1 = "green"
+let str2:string = "나는 이제 문자열타입이야"
+이와 같이 입력.
+
+1) 타입 추론
+타입스크립트는 타입 표기가 없는 겨우 코드를 읽고 분석하여 타입을 유추할 수 있다.
+
+2) 타입 명시
+변수 선언 시 변수값의 타입을 명시함으로써 변수 값의 데이터 타입을 지정
+구문 > let x:string = "나는 영원히 문자열 타입의 변수이다."
+
+3) 타입 선언
+1. 변수 타입 선언
+let 변수명:type
+number, string, boolean, null, undefined
+object, Array<type>, type[]
+항목의 값을 지정할 수 없을 때 any 지정
+유니언 타입(다중 타입)
+let array: (string | number) []
+let strnum: (string | number)		//문자열과 숫자열을 동시에 값을 지정하고 싶을 때
+let numStr: number | string ;
+numStr = 30;
+numStr = "A";
+
+함수타입선언
+1. 인수와 반환 값이 있을 때
+let myFunction:(arg1: number, arg2: number) => number;
+myFunction = (function(x,y) {
+	return x+y;
+}
+function myFunction(a:number, b:number) : number {
+	return a + b
+}
+2. 인수와 반환값이 없을 때 void ---> 리턴이 없을 때
+function myFunction():void {
+	console.log("hi");
+}
+let myFunction:() => void
+myFunction = function(){
+	console.log("hi");
+}
+
+
+this 바인딩 메소드
+this ---> window
+user.print()
+함수호출에서 사용할 this를 지정
+funstion printName(){
+	console.log(this.name;
+}
+call()
+apply()
+bind()
+
+
+
+
+
+

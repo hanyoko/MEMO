@@ -1,0 +1,409 @@
+[1102 복습]
+변수와 상수
+var, let
+1. var
+- 변수 선언부가 호이스팅 된다. // 호이스팅 ? 순서에 상관없이 위쪽으로 끌어 올린다. / 어떨 때 사용되는지?
+- 같은 이름의 변수를 여러번 선언 가능하다.
+- 함수 스코프
+
+2. let
+- 블럭 스코프
+- 같은 이름의 변수를 선언할 수 없다.
+- 재할당 가능하다.
+
+3. const
+- 블럭 스코프
+- 선언과 동시에 할당해야한다.
+- 재할당이 불가능하다 (할당한 값을 변경할 수 없다)
+
+let userName = "abc"
+userName = "aaa"  //let은 처음에 입력한 값을 바꿀 수 있다
+const
+const userName2 = "bbb" //const는 처음에 입력한 값을 바꿀 수 없다.
+userName2 = "aaa" // 에러가 발생한다.
+
+4. 출력
+window.alert("내용")
+document.write("내용")
+console.log("내용")
+Object.innerHTML = "내용"
+
+5. Dom 요소 선택
+단수선택
+document.getElementById("id명")
+document.querySelector("css선택자")
+
+복수선택
+document.getElementsByTagName("Tag명")
+document.getElementsByClassName("class명")
+
+데이터타입
+기본타입
+number
+string
+boolean
+Boolean
+- 대부분 true
+- 빈문자, 0, undefined, null 은 false
+null
+bigint
+undefined
+
+typeof 값
+
+
+1. 입력
+prompt("안내글")
+2. 형변환 + 연산자 p.65
+* number 타입으로 변환하기
+Number()
+parseInt()
+parseFloat()
+* string 타입으로 변환하기 p112
+String() 
+변수.toString()
+변수.toFixed()
+* boolean 타입으로 변환하기
+Boolean()
+숫자 0, 빈문자열, null, undefined, NaN
+
+연산자
+덧셈 / 뺄셈 / 곱셈 / 나눗셈 / 나머지 / 거듭제곱
+let x = 10
+undefined
+let y = 20
+undefined
+x + y
+30
+x - y
+-10
+x * y
+200
+x / y
+0.5
+let num1 = 5;
+undefined
+let num2 = 2;
+undefined
+num1 % num2
+1
+2 ** 2
+4
+2 ** 3
+8
+2 ** 4
+16
+
+할당 연산자
+
+복합 할당 연산자
+let x = 2
+x = x + 2
+x += 2;
+x -= 2;
+x = x * 2;
+x *= 2;
+x = x / 2;
+x /= 2
+
+증가-감소 연산자
+- 변수에만 쓸 수 있다. ex) 5++와 같이 값에 사용하려고 하면 에러가 발생한다. 
+
+let num = 10;
+undefined
+num++ 후위형
+10
+num
+11
+num++
+11
+num
+12
+num++
+12
+num
+13
+++num 전위형
+14
+++num
+15
+----------------
+let num = 10;
+undefined
+alert(num++)
+undefined
+num
+11
+alert(++num)
+----------------
+
+비교 연산자
+- == 값이 같다. 동등연산자
+- ===값과 타입이 같다. 일치연산자
+- != 값이 다르다. 부등연산자
+- !== 값과 타입이 다르다. 불일치연산자
+> 크다
+< 작다
+>= 크거나 같다
+<= 작거나 같다
+"1" == 1
+true
+"1" === 1
+false
+12 != 10
+true
+"1" !== 1
+true
+"1" != 1
+false
+10 > 20
+false
+10 < 20
+true
+5 <= 1
+false
+5 >= 1
+true
+null == undefined
+true
+null === undefined
+false
+
+논리연산자
+let result = 5 > 10
+undefined
+result
+false
+5 > 1 && 10 > 20
+false
+10 > 1 || 5 > 20
+true
+true && true
+true
+----------------------
+let num = 9
+undefined
+num < 10 && num > 5
+true
+num > 5 || num > 100
+true
+num == 0 || num > 100
+false
+let boolean1 = true;
+undefined
+!boolean1
+false
+!boolean1
+false
+boolean1 = !boolean1
+false
+boolean1
+false
+boolean1 = !boolean1
+true
+alert( 10>5 || 10 > 100 )
+undefined
+alert( 10>5 && 10 > 100 )
+undefined
+
+논리 연산자 NOT은 느낌표!를 써서 만들 수 있다.
+NOT 연산자는 인수를 하나만 받을 수 있다.
+
+
+
+3. 함수
+
+prompt
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let userName = prompt("당신의 이름을 입력하세요"); // 입력 창 띄우기
+        document.write(userName); // 입력된 값 저장
+    </script>
+</body>
+</html>
+
+[형 변환]
+
+
+
+
+let str = "green"
+undefined
+console.log("안녕하세요" + str + "님")
+안녕하세요green님
+undefined
+console.log(`안녕하세요 ${str}님`)
+안녕하세요 green님
+undefined
+
+[제어문과 조건문]
+1. if 문
+2. if / else 문
+3. id / else if / else 문
+4. switch 문
+
+★★★if문 암기★★★
+    <script>
+        /*
+        if (조건식) {
+            조건식이 true일 때 실행
+        } else {
+            조건식이 false일 때 실행
+        }
+        */
+       /*
+        if (조건식1) {
+            조건식1이 true일 때 실행
+        } else if(조건식2){
+            조건식1이 false일 때 조건식 2가 true일 때 실행
+        } else {
+            조건식1도 false 이고 조건식2도 false일 때 실행
+        }
+        */
+       let time = 2;
+       if(time < 10) {
+        console.log("좋은아침");
+       } else if(time < 20) {
+        console.log("좋은하루");
+       } else {
+        console.log("좋은밤");
+       }
+       let num = 2;
+       let result = num>4 ? "맞아요" : "틀렸어요" ; // 삼항연산자
+       console.log(result);
+    </script>
+
+
+
+
+
+       /*
+       prompt로 입력을 받아서 입력받은 값이 홀수면 경고창에 홀수, 짝수면 짝수를 출력
+       */
+       let num2 = prompt ("숫자를 입력하세요")
+        if(isNaN(Number(num2)) || num2 == "") {
+            alert("숫자를 입력하세요.")
+        } else if(num2%2==1){
+            alert("홀수 입니다.");
+        } else {
+            alert("짝수 입니다.");
+        }오후 2:18 2022-11-03
+
+
+    <script>
+        /* userId가 admin이면
+        userPass를 사용자로부터 입력받고,
+        userPass는 1234면 환영합니다. 다르면 인증에 실패했습니다. */
+        let userId = prompt ('아이디를 입력하세요');
+        if(!userId) { //!는 부정의 의미 -> 아무것도 입력하지 않았을 때
+            userId = prompt('아이디를 입력하지 않았습니다 !');
+        } else if(userId === "admin"){
+            prompt("비밀번호를 입력하세요")
+            let userPass = prompt("비밀번호를 입력하세요");
+            if(userPass === "1234"){
+                alert("환영합니다 !");
+            } else {
+                alert("인증에 실패했습니다.");
+            }
+        } else {
+                alert("인증에 실패했습니다.");
+            }
+    </script>
+
+
+
+[복습]
+형변환
+묵시적형변환
+Number("123")
+parseInt("zzz") -> NaN 
+NaN 다른 모든 값과 비교(==,!=,===,!==)했을때 같지않다.
+다른 NaN과도 같지 않다.
+isNaN()
+parseFloat()
+
+String()
+var.toString(진법)
+var.toFixed(소수자리수)
+
+Boolean()
+false
+숫자 0, "", null, undefined, NaN
+
+연산자
+1. 산술연산자
++, -, *, /, %, **
+2. 증감, 감소연산자
+let number = 0
+++, --
+++number 전위증감연산자
+number++ 후위증감연산자
+
+3. 복합대입연산자
+let a = 10;
+a = a + 1;
+a += 1;
+a = a - 1;
+a -= 1;
+4. 비교연산자
+A > B 크다
+A >= B 크거나 같다
+A < B 작다
+A <= B 작거나 같다
+A == B 값이 같다
+A === B 값이 타입이 같다
+A != B 값이 같지않다
+A !== B 값과 타입이 같지않다.
+5. 논리연산자
+&&
+true && true => true
+false && true => false
+||
+true || false => true
+!
+!true => false
+!false => true
+6. 삼항연산자
+피연산자가 3개인 연산자
+a > b ? "맞아요" : "틀려요"; => ? : ; 삼항연산자 구문 암기
+
+제어문
+조건문 / 반복문
+if(표현식) {
+	표현식이 true 면 실행
+}
+if(표현식) {
+	표현식이 true면 실행
+}else {
+	표현식이 false면 실행
+}
+
+if(표현식1) {
+ 표현식1이 참이면 실행
+} else if (표현식2) {
+ 표현식1이 거짓이고 표현식2가 참이면 실행
+} else {
+ 표현식1과 표현식2가 거짓일 때 실행
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

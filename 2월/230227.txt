@@ -1,0 +1,25 @@
+클래스
+class User {
+	construnctor(name, age){
+		this.name = name;
+		this.age = age;
+	}
+	sayHi(){
+		console.log(this.name);
+	}
+}
+생성자 함수
+function User(name, age){
+	this={}
+	this.name = name;
+	this.age = age;
+	this.sayHi = function(){
+		console.log(this.name);
+	}
+}
+const user1 = new User("green", 10)
+user1.sayHi()
+
+
+https://wr4a6p937i.execute-api.ap-northeast-2.amazonaws.com/dev
+/languages?keyword=java

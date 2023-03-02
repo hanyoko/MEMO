@@ -1,0 +1,85 @@
+useState ----> 상태관리
+useState() ----> [state, f]
+useEffect ----> 마운트, 언마운트, 업데이트(리렌더링)될 때 실행코드를 작성
+마운트, 업데이트 시 콜백함수 호출
+useEffect(콜백함수)
+마운트 될 때만 콜백함수 호출
+useEffect(콜백함수,[])
+마운트 될 때와 name 상태값이 변경될 때만 호출
+useEffect(콜백함수,[name])
+마운트 될 때 호출, 언마운트 될 때 클린업 호출
+useEffect(()=>{
+	//마운트 될 때 실행문
+	return()=>{
+	//언마운트 될 때 실행문
+	}
+})
+useRef
+컴포넌트의 전 생애주기동안 유지된다.
+Ref 값이 변경되어도 리렌더링 되지 않는다.
+용도
+1) 저장공간
+const count = useRef(10) ----> 객체리턴 {current: 10}
+count.current = count.current + 1;
+2) DOM 요소 접근
+const inputName = useRef();
+Document.querySelector("#inputname")
+//id 값 지정
+inputName.current.focus();
+//ref의 값 지정
+<input ref={inputName} id="inputname" />
+
+ContextAPI
+어떤 컴포넌트 트리 내에서 최상위 컴포넌트부터 최말단 컴포넌트에 걸쳐 전역으로 관리해야할 데이터를 관리
+1) context 생성
+- context : 전역데이터를 담고 있는 저장공간
+createContext(초기값) 함수호출
+2)context 사용
+useContext(context)
+
+
+
+*설치하고 싶은 폴더에서 cmd 를 치면 자동으로 명령 프롬프터가 열린다.
+(위치를 변경해주지 않아도 된다.)
+
+자바스크립트 모듈 내보내기 가져오기
+1. export 내보내기
+1) 복수의 함수가 있는 라이브러리 형태
+- export {}
+2) 개체 하나만 선언되어있는 모듈
+- export default
+* export default 개체 하나만 선언된 모듈
+function Header(){
+	const addUser = () => {}
+	return(
+		<div></div>
+	)
+}
+//이렇게 개체 하나만 선언된 모듈을 export default로 내보낸다
+
+
+2. import 가져오기
+
+
+
+{
+	isDark: isDark,
+	setIsDark: setIsDark
+}
+{
+	isDark,
+	setIsDark
+}
+//이렇게 간단하게 작성가능
+
+[react scss 설치하기]
+일괄 작업을 끝내시겠습니까 (Y/N)? y		//ctrl+c로 활성화
+ npm uninstall -g node-sass
+ npm install node-sass@8
+
+
+[styled-components 설치하기]
+구글에 styled-components 검색
+Documentation -> Basics -> Installation -> npm install --save styled-components
+설치 완료
+

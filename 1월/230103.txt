@@ -1,0 +1,15 @@
+Microsoft Windows [Version 10.0.17763.557]
+(c) 2018 Microsoft Corporation. All rights reserved.
+
+C:\Windows\system32>cd C:\Program Files\MySQL\MySQL Server 8.0\bin	//저장경로 설정
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysqldump -uroot -p1234 green > greenedn.sql	//서버이름과 비밀번호 입력 후 > 파일이름 설정
+mysqldump: [Warning] Using a password on the command line interface can be insecure.
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>
+
+
+웹호스팅에서 상세보기 들어간 후,
+mysql 관리 링크 접속.
+ DB 아이디	hanyoko와 비밀번호 입력해서 로그인
+데이터베이스 선택 후 가져오기

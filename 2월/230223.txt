@@ -1,0 +1,26 @@
+npx create-react-app builtin-functions --template typescript
+
+json-server 라이브러리 사용하기
+json파일을 사용하여 간단한 시뮬레이션을 위한 REST API Mock server 구축할 수 있는 툴입니다.
+설치
+npm install -g json-server
+구동하기
+json-server --watch data.json파일 경로 --port 3003
+fetch 전송
+json-server --watch ./src/db/data.json --port 3003
+
+
+npm install styled-components
+npm install @types/styled-components 
+
+npm install react-router-dom
+npm install @types/react-router-dom
+
+
+
+subject": 1,
+name: "map()",
+type: "array",
+syntex: "배열변수.map(li=>li+1)",
+desc: "배열요소의 형태를 변경하여 새로운 배열로 리턴"
+  

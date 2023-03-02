@@ -1,0 +1,163 @@
+class
+promise
+localstorage
+cookie
+
+class ??? es6 추가된 문법
+객체
+person1 = {
+	name: "green";
+	age: 20,
+}
+person1.name
+person1["name"]
+
+생성자함수 - 붕어빵틀
+객체를 만들기 위한 설계도
+function Person(name, age, hasJob){
+	this.name = name;
+	this.age = age;
+	this.hasJob = hasJob;
+}
+let person2 = new Person("blue",20,true);
+class Person {
+	//생성자
+	constructor(name, age, hasJob){
+		this.name = name;
+		this.age = age;
+		this.hasJob = hasJob;
+	}
+	speak(){
+		console.log("hello");
+	}
+	eat(){
+		console.log("먹는다");
+	}
+}
+let person3 = new Person("aaa",30,false);
+
+클래스 상속
+"extends" 키워드
+class Animal {
+	constructor(name){
+		this.name = name;
+		this.speed = 0;
+	}
+	run(speed){
+		this.speed = speed;
+		console.log(`${this.name}은 속도 ${this.speed}로 달립니다.`)
+	}
+}
+let animal = new Animal("동물"); {name: "동물", speed: 0}
+
+----------------------------------------------------------------------------------------
+
+fetch API
+fetch("경로")
+.then()
+.then()
+
+promise 
+비동기를 간편하게 처리할 수 있도록 도와주는 오브젝트
+정해진 기간의 기능을 수행하고 정상적으로 기능이 수행되면
+성공의 메시지와 결과값을 전달하고 기능을 수행하다가
+예상치못한 결과가 생겼다면 에러를 전달해준다.
+
+state(상태)
+promise가 수행 중이면 pending
+promise가 수행이 종료되면 fullfilled
+promise가 수행 중 오류가 발생하면 reject
+
+프로듀서 : 프로미스를 만들어서 제공하는 쪽
+let promise = new Promise((resolve, reject)=>{
+	resolve();
+	reject();
+});
+컨슈머 : 프로미스의 결과를 사용하는 쪽
+
+<script>
+        const myFun1 = (message)=>{
+            console.log(message);
+            return new Promise((resolve, reject)=>{
+                setTimeout(function(){
+                    resolve("1번 주문완료")
+                },1000)
+            })
+        }
+        const myFun2 = (message)=>{
+            console.log(message); 
+            return new Promise((resolve, reject)=>{   
+                setTimeout(function(){
+                resolve("2번 주문완료");
+                },3000)
+            })
+        }
+        const myFun3 = (message)=>{
+            console.log(message);
+            return new Promise((resolve, reject)=>{
+                setTimeout(function(){
+                resolve("3번 주문완료");
+                },2000)
+            })
+        }
+        // myfun1(function(){
+        //         myFun2(function(){
+        //             myFun3(function(){
+        //                 console.log("끝");
+        //             })
+        //         })
+        //     });
+        console.time("r")
+        // myFun1()
+        // .then(res=>myFun2(res))
+        // .then(res=>myFun3(res))
+        // .then(res=>{
+        //     console.log(res);
+        //     console.timeEnd("r");
+        // })
+        Promise.all([myFun1(), myFun2(), myFun3()]).then(res=>{
+            console.log(res);
+            console.timeEnd("r");
+        })
+    </script>
+
+// myFun1()
+        // .then(res=>myFun2(res))
+        // .then(res=>myFun3(res))
+        // .then(res=>{
+        //     console.log(res);
+        //     console.timeEnd("r");
+        // })
+시간에 따라 각각 나타낼 때
+
+Promise.all
+Promise.all([myFun1(), myFun2(), myFun3()]).then(res=>{
+            console.log(res);
+            console.timeEnd("r");
+        })
+값을 한번에 보여줘야할 때 사용
+
+Promise.race([myFun1(), myFun2(), myFun3()]).then(res=>{    //Promise.race는 가장 먼저 받아지는 값을 내보낸다.
+            console.log(res);
+            console.timeEnd("r");
+        })
+
+[async]
+<script>
+        async function getName(){	//async가 없으면 green을 출력하고 async가 있으면 Promise 값을 출력한다.
+            return "green";
+        }
+        console.log(getName());
+</script>
+
+재원 ?00
+
+
+
+
+
+
+
+
+
+

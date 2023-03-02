@@ -1,0 +1,74 @@
+database 설계
+hotel 데이터베이스 생성
+1) 회원테이블 (member)
+2) 객실테이블 (guestroom)
+3) 이벤트테이블 (event)
+번호, 제목, 기간, 간단설명, 설명, 카테고리, 스페셜오퍼(special)
+4) 예약테이블 (reservation)
+
+리덕스 상태관리
+리덕스 미들웨어
+npm install redux-thunk
+npm install @redux-devtools/extension
+1. 리덕스 모듈 생성
+2. 스토어 만들기
+createStore(리듀서)
+
+------------------------------------------------------------------------
+
+Git
+하나의 프로젝트를 버전 별로 관리 할 수 있도록 해주는 툴
+
+GitHub
+원격 저장소를 이용해서 하나의 프로젝트를 여러 사용자가 협업을 하거나,
+자역 저장소에서 작업한 내용을 자유롭게 원격 저장소에서 공유할 수 있다.
+
+1) 내컴퓨터에 git프로그램 설치
+http://git-scm.com/
+
+2) 유저 설정
+유저이름설정
+git config --list
+git config --global user.name "your_name"
+유저 이메일 설정	***github 가입 시 사용한 이메일 주소를 써주세요 !
+git config --global user.email "your_email"
+
+3) git 사용하기
+git을 사용할 폴더 안에서 마우스 우클릭
+git bash here 실행
+1. git 초기화 (1번만 해줌 !!! git을 사용하겠다 !!!)
+git hit ---> .git 폴더가 생성됨 (숨김파일 보기)
+
+2. 파일 추가하기
+git add index.html ---> index.html 파일을 추가
+git add .	---> 모든 파일을 추가
+* 상태확인 git status
+
+3. 히스토리 만들기 (.git에 올리기)
+git commit -m "first commit"
+* 히스토리 확인 git log
+
+4. 원격 저장소 연결
+git remote add origin 주소
+* 원격저장소 연결 끊기 git remote remove origin
+* 원격저장소 연결 확인 git remote -v
+
+5. 브런치를 메인으로 변경
+git branch -M main
+
+6. 원격저장소(github)에 올리기
+git push origin main
+
+7. 계속 업데이트 하기
+파일 더하기
+git add .
+git commit -m "commit2"
+git push origin main
+
+-----------
+git checkout -b 브런치이름
+git add .
+git commit -m "blue commit"
+git push orgin 브런치이름
+
+

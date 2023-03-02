@@ -1,0 +1,84 @@
+redux ??
+리덕스 3가지 규칙
+1. 하나의 애플리케이션 안에는 하나의 스토어가 있다.
+2. 상태는 읽기 전용이다.
+3. 리듀서는 순수한 함수여야 한다.
+
+useReducer()
+1. 상태초기화
+2. 리듀서함수
+3. 상태와 디스패치 생성
+4. 디스패치({액션})
+
+*스토어 생성하기
+const store = Redux.createStore(리듀서함수)
+*상태값 반환하기
+store.getState()
+*상태값 변경하기
+store.dispatch({
+	type: "",
+})
+
+액션(Action)
+상태를 업데이트 할 때 액션을 전달한다
+액션은 객체로 표현되며 type 속성을 필수로 가지고 있다
+그외의 속성을 추가할 수 있다
+액션객체
+{
+	type: "INCREMENT"
+	color: "red"
+}
+액션을 만들어주는 함수이다.
+function increment(add){
+	return {
+		type: "INCREMENT",
+		add: add
+	}
+}
+const increment = (add) => ({type: "INCREMENT", add: add})
+
+3. 리듀서(reducer)
+상태를 업데이트 시키는 함수이다.
+리듀서는 두가지 파라미터를 받아온다.
+function reducer(state, action){
+	return newState;
+}
+
+4. 스토어(store)
+리덕스에서 한 애플리케이션당 하나의 스토어를 만든다
+스토어 안에는 현재의 상태와 리듀서, 내장함수들이 있다.
+dispatch(), subscribe(), getState()
+
+5. 구독(subscribe)
+스토어의 내장함수 중 하나이다.
+함수형태의 값을 파라미터로 받아오며 subscribe 함수에 특정 함수를 전달하면,
+액션이 디스패치 될 때마다 전달해준 함수가 호출된다.
+
+https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=ko
+redux devtools 설치
+npm install --save @redux-devtools/extension 설치해주기
+
+
+리덕스 모듈 만들기
+리덕스 모듈 : 액션타입, 액션 생성함수, 리듀서가 모두 포함되어있는 자바스크립트 파일
+
+카운터모듈
+투두스모듈
+----------> 루트리듀서 ---------> 스토어 생성
+
+리듀서를 합치는 코드인 컴바인 
+
+컴포넌트 만들기
+1. 프레젠테이셔널 컴포넌트
+리덕스 스토어에 직접적으로 접근하지않고 필요한 값은 props로 받아와서 사용하는 컴포넌트
+UI를 선언한느 것에 집중(<div></div>)
+2. 컨테이너 컴포넌트
+리덕스 스토어의 상태를 조회하거나, 액션을 디스패치 할 수 있는 컴포넌트
+다른 프레젠테이셔널 컴포넌트 불러와서 사용
+
+
+
+
+
+
+

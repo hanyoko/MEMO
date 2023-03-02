@@ -1,0 +1,128 @@
+1) cosmetic-server 폴더 생성
+2) npm init ---> npm 패키지 초기화
+3) node 파일 이름 ---> 자바스크립트 파일 실행
+4) node 환경에서 채택된 자바스크립트 문법은 es6가 아닌 Common JS임.
+
+***모듈 로딩***
+- es6 문법
+export, import
+export function hello(){
+
+}
+import hello from './hello.js'
+- Common JS 문법
+module.export 내보내기(export)
+require('이름') 불러오기 (import)
+ex> const hello = require("./hello.js")
+
+const http = require('http');
+//내 컴퓨터 주소를 의미한다
+const hostname = "127.0.0.1";
+const port = 8080;
+http://localhost:8080
+const server = http.createServer(function(req, res){
+	res.end("안녕 클라이언트")
+})
+server.listen(port, hostname);
+
+
+웹브라우져(요청: 주소창에 서버주소를 입력)	웹서버
+http://localhost:8080/products
+
+https://expressjs.com/ko/
+
+[cosmetic-server] 만들기
+cosmetic-server 이름으로 만들어진 빈폴더 만들기
+terminal에 npm init
+npm install express
+npm install cors
+2가지 설치해준다
+
+node index.js 를 이용해서 서버 연결하기
+
+리듀서 상태관리
+1) 상태 초기값
+2) 리듀서 함수 구현
+3) 디스패치, 상태 생성
+
+요청을 했을 때의 상태
+{
+	loading:,
+	data:,
+	error:,
+}
+
+$conn = mysqli_connect("localhost", "admin", "1234", "test");
+$sql = "select * from board";
+$result = mysqli_query(conn, $sql)
+
+
+src
+폴더
+main
+product
+upload
+
+http://lamp-shopping-client.vercel.app/
+
+
+ npm install react-router-dom 라우터 설치
+
+
+Database
+shopping
+
+products 테이블
+create table products(
+	p_id int primary key auto_increment,
+	p_name varchar(20) not null,
+	p_price int not null,
+	p_desc text,
+	p_quantity int not null,
+	p_img varchar(100)
+);
+
+insert into 테이블 이름 (필드 이름)
+values()
+insert into products(p_name,p_price,p_desc,p_quantity,p_img)
+value("메이크업1",50000,"인기있는 상품입니다.",80,"images/product1.png");
+insert into products(p_name,p_price,p_desc,p_quantity,p_img)
+value("메이크업2",50000,"새로운 상품입니다.",80,"images/product2.png");
+insert into products(p_name,p_price,p_desc,p_quantity,p_img)
+value("메이크업3",50000,"세일 상품입니다.",80,"images/product3.png");
+
+
+서버에 mysql 설치
+npm install mysql
+
+
+express 서버에서 mysql 연동
+1. mysql 설치
+1) create database shopping
+2) create table products()
+3) insert문으로 데이터 생성
+
+2. express 서버에 mysql 설치
+npm install mysql
+1) mysql 라이브러리 불러오기 const mysql = require("mysql")
+2) mysql 접속 생성
+3) mysql.createConnection({
+	host: "localhost",
+	user: "root",
+	pasword: "1234",
+	database: "shopping",
+	port: "3306"
+})
+3) mysql 접속 conn.connect()
+4) 쿼리 전송 conn.query("쿼리문",(err, result, filed)=>{
+		//처리할 코드
+	    })
+app.get('/products', (req, res)=>{
+	conn.query("쿼리문",(err, result, filed)=>{
+		res.send(result)
+	})
+})
+
+
+
+

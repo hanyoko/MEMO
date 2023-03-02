@@ -1,0 +1,53 @@
+php
+
+php 파일 
+scandir("경로")
+경로에 있는 파일을 배열로 리턴해줌
+
+include "경로"
+다른 파일을 현재 파일에 포함(여러번 포함 가능)
+include_once "경로"
+다른 파일을 현재 파일에 포함(한번만 포함 가능)
+
+상대경로
+include "상대경로명"
+절대경로
+include $_SERVER["DOCUMENT_ROOT"]
+
+get 방식
+url 데이터 전송
+edit.php?title=새로운 제목
+
+$_GET['title']
+
+파일 다루기
+폴더 파일 배열로 반환 scandir("파일경로")
+파일 내용 반환 file_get_contents("파일경로");
+파일 내용 수정 file_put_contents("파일경로","파일내용");
+파일 이름 변경 rename(oldname,newname);
+
+파일 불러오기
+include "파일 경로"
+include_once "파일 경로"
+
+리다이렉트
+header('Location:경로');
+
+슈퍼글로벌변수
+$_GET get으로 전송된 값을 가지고 있는 슈퍼글로벌변수
+전송받은 값에 전근 $_GET['name']
+$_POST post로 전송된 값을 가지고 있는 슈퍼글로벌변수
+전송받은 값에 접근 $_POST['name']
+
+isset()
+
+file 	         crud
+index.php   =>   read
+edit.php   =>   update
+delete.php   =>   delete
+write.php   =>   create
+
+
+blog 폴더 만들기
+data 폴더 만들기
+파일 5개 만들기

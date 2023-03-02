@@ -1,0 +1,23 @@
+리액트 프로젝트 생성하기
+d 드라이브로 전환 d:
+프로젝트 생성할 경로 입력 : ex) D:\01-STUDY\kyh\09.REACT
+npx create-react-app 프로젝트 이름
+완료
+
+props
+state
+이벤트
+컴포넌트
+컴포넌트(함수형, 클래스형)
+배열(map, filter) 렌더링하기
+
+<User user={users[0] name="a" /}>
+props = {
+	user: {
+		id: 1,
+		username: "민준",
+		email: "민준@green.com"
+	},
+	name: "a"
+}
+props.user.username

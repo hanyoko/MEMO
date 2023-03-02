@@ -1,0 +1,168 @@
+상태관리
+useState<number>()
+useReducer(reducer, state)
+
+1. 스토어 생성
+const store = Redux.createStore(리듀서)
+2. 상태값 반환
+store.getState();
+3. 상태업데이트
+store.dispatch({액션객체})
+4. 구독 - 상태가 업데이트 될 때 함수호출
+stroe.subscribe(함수)
+
+redux+react 사용하기
+redux, react-redux 설치
+타입스크립트 지원이 되는지 안 되는지 확인
+타입스크립트 지원이 안 되면 앞에 @types/ 붙여서 설치
+index.d.ts 파일이 있는지 확인
+redux 사용하기
+1. 스토어 생성하기
+const store = createStore(리덕스모듈, 데브툴즈(미드웨어()))
+<Provider store={store}>
+<App/>
+</Provider>
+
+2. 상태값 반환
+const todos = useSelector(state => state.todos)
+
+3. 상태업데이트
+const dispatch = useDispatch()
+
+터미널에 설치
+npm install redux react-redux @types/react-redux
+
+
+*store를 생성하기 위해 리덕스모듈이 필요하다
+리덕스 모듈
+1. 액션타입, 액션생성함수?, 리듀서
+as number
+interface Person {
+	name: string;
+}
+타입선언
+const green:Person = {name: "aaa"}		//타입은 Person
+타입단언
+const green = {name: "bbb"} as Person	//타입은 Person
+* 타입단언을 사용하면 타입 체크를 하지 않는다
+타입체커에게 오류를 무시하도록 한다.
+
+ReturnType<typeof 함수>
+특정 함수의 반환값을 추론
+
+interface Person {
+  name: string
+}
+const person1:Person = {
+  name: "green",
+  age: 30 -오류발생   //타입체크를 해준다. 이럴 때 쓰는 것이 as
+}
+//타입 단언
+const person2 = {name: "blue", age: 30} as Person
+
+1)리덕스모듈 생성
+2)루트리듀서 생성 combineReducers({ counter, todos })
+3)스토어생성
+createStore(루트리듀서)
+
+컴포넌트 
+1) 프레젠테이션 컴포넌트
+컨테이너 컴포넌트로부터 상태값을 받아서 화면 구현
+2) 컨테이너 컴포넌트
+store에 접근(useSeletor()), state 업데이트(useDispatch)
+
+tsx: 리턴 타입이 있는 항목 컴포넌트항목 - 조립하는 항목들
+ts: 조립하지않는 항목은 ts로 작성
+
+------------------------------------------------------------------------------------
+typesafe-actions
+npm install typesafe-actions
+리덕스모듈을 간단하게 만들 수 있도록 만들어 준다
+
+액션생성함수
+export const addTodo = (text:string) => ({
+    type: ADD_TODO,
+    payload: {
+        id: nextId++,
+        text: text
+        } 
+    })
+export const removeTodo = (id:number) => ({
+        type: REMOVE_TODO,
+        payload: id
+    })
+export const toggleTodo = (id:number) => ({
+        type: TOGGLE_TODO,
+        payload: id
+    })
+
+action() 함수는 액션 객체를 만드는 함수
+*** 파라미터와 payload 값의 형태가 다를 때
+파라미터를 기반으로 커스터마이징 된 payload 설정일 때
+createAction(ADD_TODO, action => (text:string) =>
+	action({ id: nextId++, text: text })
+)
+createStandardAction(REMOVE_TODO)<number>()
+createStandardAction(TOGGLE_TODO)<number>()
+
+//리듀서
+리듀서 생성함수
+createReducer<상태타입, 액션타입>(초기상태값, {
+	[액션타입1]:(state, action) => 리턴값,
+	[액션타입2]:(state,{ payload: id }) => 리턴값,
+	[액션타입3]:(state,{ payload: id }) => 리턴값
+ })
+createReducer<상태타입, 액션타입>(초기상태값, {
+	[액션타입1]: state => ({ count: state.count + 1 })
+	[액션타입1]: state => ({ count: state.count + 2 })
+})
+createReducer<상태타입, 액션타입>(초기상태값)
+.handleAction(액션타입, state => ({ count: state.count + 1 }))
+.handleAction(액션타입, state => ({ count: state.count + 2 }))
+
+/*
+	[
+		...state,
+		{
+			...action.payload,
+			isDone: false
+		}
+	]
+*/
+
+typesafe-actions 라이브러리 적용하기
+* 리덕스 모듈을 좀 더 간결하게 작성
+액션타입, 액션생성함수, 리듀서 함수, 상태 타입, 액션 타입
+1. 액션 타입
+const INCREASE = "counter/INCREASE" as const
+---> const INCREASE = "counter/INCREASE"
+2. 액션 생성함수
+*액션 객체에 type 속성만 있는 경우
+createStandardAction(액션타입)();
+*액션 객체에 전달하는 속성이 있는 경우(payload 속성이 있는 경우)
+createStandardAction(액션타입)<payload값 타입>
+1) 전달 받은 타입과 payload 타입이 일치하는 경우
+ToggleTodo(1) ---> dispatch({ action: TOGGLE_TODO, payload: 1 })
+createStandardAction(액션타입)<payload값 타입>();
+AddTodo("리액트포폴만들기") ---> dispatch({type:ADD_TODO,
+payload: { id: 2, text: "리액트 포폴만들기" }
+})
+2) 전달 받은 타입과 payload 타입이 다를 경우
+createAction(액션타입, action => (text:string) => 
+	action({
+		id: 2,
+		text: text
+	})
+)
+3. 액션 객체에 대한 타입
+const actions = { 액션생성함수1, 액션생성함수2... }
+type TodoAction = ActionType<typeof actions>
+
+4. 리듀서
+const todos = createReducer<상태타입, 액션타입>(상태초기값, {
+	[액션타입1]: (state, action) => 상태리턴,
+	[액션타입2]: (state, action) => 상태리턴
+})
+
+
+

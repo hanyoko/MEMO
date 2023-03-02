@@ -1,0 +1,298 @@
+[웹 서버]
+
+Apache 설치
+cmd 관리자 모드로 실행
+https://www.apachelounge.com/download/#google_vignett	에서
+Apache 2.4.54 Win64 다운로드 후
+로컬 디스크 C 에 복사
+
+conf 폴더에 있는 httpd.conf 파일을 메모장으로 열어서
+DocumentRoot "c:/Apache24/htdocs"
+<Directory "c:/Apache24/htdocs">
+ 저장위치 변경
+
+<IfModule dir_module>
+    DirectoryIndex index.html
+</IfModule> 를 찾아서  index.php  추가
+<IfModule dir_module>
+    DirectoryIndex index.php index.html
+</IfModule> 
+
+C:\Windows\system32>cd c:\Apache24\bin
+
+c:\Apache24\bin>httpd.exe -k install 입력
+
+Microsoft Windows [Version 10.0.17763.557]
+(c) 2018 Microsoft Corporation. All rights reserved.
+
+C:\Windows\system32>cd c:\Apache24\bin
+
+c:\Apache24\bin>httpd.exe -k install
+Installing the 'Apache2.4' service
+The 'Apache2.4' service is successfully installed.
+Testing httpd.conf....
+Errors reported here must be corrected before the service can be started.
+AH00558: httpd.exe: Could not reliably determine the server's fully qualified domain name, using fe80::3497:5841:2d6c:a727. Set the 'ServerName' directive globally to suppress this message
+
+c:\Apache24\bin> 라고 출력된다.
+
+bin 폴더에 있는 ApacheMonitor.exe 실행 후 start 버튼 클릭
+localhost를 주소창에 입력했을 때 It works! 라고 뜨면 서버 작동
+
+httpd.conf 에서 SRVROOT
+Define SRVROOT "c:/Apache24"
+
+ServerRoot "${SRVROOT}"
+확인 후 경로 변경 해준다
+->
+Define SRVROOT "c:/Apache24"
+
+ServerRoot "c:/Apache24"
+
+htdocs 폴더에서 index.html 을 클릭하면 It works! 를 확인했던 페이지가 나온다
+
+httpd.conf 파일의 맨마지막에 저장해주기
+
+PHPIniDir "C:/php7"
+LoadModule php7_module "C:/php7/php7apache2_4.dll"
+AddType application/x-httpd-php .html .php
+AddHandler application/x-httpd-php .php
+
+
+
+
+
+설치 끝
+
+----------------------------------------------------------------------------------
+
+html, css, javascript => 웹 브라우져 언어
+php => 서버에서 동작하는 언어
+
+MySQL 8.0 Command Line Client
+password : 1234
+mysql> select version();
++-----------+
+| version() |
++-----------+
+| 8.0.21    |
++-----------+
+1 row in set (0.00 sec)
+
+----------------------------------------------------------------------------------
+[php]
+php 다운로드
+https://windows.php.net/download/
+
+PHP 7.4 (7.4.33)
+VC15 x64 Thread Safe (2022-Nov-02 21:47:05)
+로컬디스크 C에 옮기기
+
+php.ini-production 를 이용해서 php.ini 를 만든다.
+
+;extension=exif      ; Must be after mbstring as it depends on it
+;extension=mysqli		//여기 주석을 제거한다.
+;extension=oci8_12c  ; Use with Oracle Database 12c Instant Client
+
+
+----------------------------------------------------------------------------------
+show databases; => 데이터 베이스 보기
+create datebase 데이터 베이스 이름 => 데이터 베이스 추가하기
+use test => 사용할 데이터베이스 지정
+use 데이터베이스 이름 => 사용할 데이터베이스 지정
+테이블 생성하기
+구문
+create table [테이블 이름] (
+	[column이름] 타입지정 제약조건,
+	[column이름] 타입지정 제약조건,
+	[column이름] 타입지정 제약조건
+)
+제약조건
+1) primary key --> 기본키로 지정(중복불가능, 반드시 입력)
+2) auto_increment --> 자동증가 값 지정
+3) not null --> 반드시 입력(null 값을 허용하지않음)
+4) null --> null 값을 허용
+
+create table employee(
+	perno int primary key auto_increment,
+	pname varchar(10) not null,
+	job varchar(20) not null,
+	sal int,
+	bonus int
+)
+insert into employee (pname, job, sal, bonus)
+values("박청규", "사원", 880000, null);
+insert into employee (pname, job, sal, bonus)
+values("강원일", "팀장", 2500000,300000);
+insert into employee (pname, job, sal, bonus)
+values("허태훈", "과장", 3000000);
+
+)
+int - 정수형 데이터타입
+varchar(최대글자갯수) - 가변길이의 문자형 데이터타입
+create table department(
+	deptNo int primary key,
+	deptName varchar(20),
+	location varchar(20)
+);
+
+
+					
+insert into [테이블 이름](컬럼이름1, 컬럼이름2, 컬럼이름3...)
+values(값1, 값2, 값3 ...)
+insert into department (deptNo, deptName, location)
+values(10,"경리부","서울");
+insert into department (deptNo, deptName, location)
+values(20,"인사부","인천");
+insert into department (deptNo, deptName, location)
+values(30,"영업부","대전");
+
+
+
+
+
+테이블 조회하기
+select * from 테이블이름;
+
+select * from department;
+
+삭제하기
+DROP 명령어
+1) 데이터 베이스 삭제
+drop datebase 데이터베이스 이름
+2) 테이블 삭제
+drop table 테이블 이름
+
+mysql> show databases
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| test               |
+| world              |
++--------------------+
+7 rows in set (0.00 sec)
+
+mysql> use test;
+Database changed
+mysql> create table department(
+    -> deptNo int primary ket,
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ket,' at line 2
+mysql> create table department(
+    -> deptNo int primary key,
+    -> deptName varchar(20),
+    -> location varchar(20)
+    -> );
+Query OK, 0 rows affected (0.17 sec)
+
+mysql> show tables
+    -> ;
++----------------+
+| Tables_in_test |
++----------------+
+| department     |
++----------------+
+1 row in set (0.02 sec)
+
+mysql> desc department;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| deptNo   | int         | NO   | PRI | NULL    |       |
+| deptName | varchar(20) | YES  |     | NULL    |       |
+| location | varchar(20) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> insert into department (deptNo, deptName, location)
+    -> values(10,"경리부","서울");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into department (deptNo, deptName, location)
+    -> values(20,"인사부","인천");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into department (deptNo, deptName, location)
+    -> values(30,"영업부","대전");
+Query OK, 1 row affected (0.00 sec)
+
+mysql>
+mysql> drop table department;
+Query OK, 0 rows affected (0.14 sec)
+
+mysql> show tables;
+Empty set (0.00 sec)
+
+3) 레코드 내용 수정하기
+update 명령어
+문법
+update 테이블이름
+set 필드 이름1=데이터 값1, 필드이름2=데이터값2,...
+where 필드이름 = 데이터 값
+
+update department
+set deptName="새로운 영업부"
+where location = "인천"
+
+4) 레코드 삭제하기
+delete from 테이블 이름
+where 필드이름 = 데이터값;
+
+delete from department
+where location = "서울";
+
+5) 레코드 조회하기
+select 컬럼명 from 테이블명
+where 컬럼명 조건절
+
+select * from employee
+where perno = 1
+
+create table members(
+	컬럼명 int primary key auto_increment,
+	자료형 varchar(10) not null,
+	옵션 varchar(20) not null,
+	설명 int
+)
+
+insert into members (컬럼명, 자료형, 옵션, 설명)
+    -> values(no,"int","auto_increment","번호");
+
+테이블 만들기
+create table members (
+    no int primary key auto_increment,
+    name varchar(20) not null,
+    tel varchar(20),
+    addr varchar(50)
+);
+
+
+
+    -> email varchar(20),
+    -> name varchar(10),
+    -> pw varchar(20),
+    -> year int,
+    -> month int,
+    -> day int,
+    -> tel int,
+    -> location varchar(10),
+    -> gender varchar(10)
+
+create table ulsan(
+email varchar(20),
+name varchar(10),
+pw varchar(20),
+year int,
+month int,
+day int,
+tel int,
+location varchar(10),
+gender varchar(10)
+    -> );
+

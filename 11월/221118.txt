@@ -1,0 +1,6 @@
+
+click / mousemove / mouseenter / mouseleave / scroll
+input => input 요소에 값을 입력하면 발생되는 이벤트
+input.addEventListenrr("input", function(){
+
+)

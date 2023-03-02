@@ -1,0 +1,56 @@
+npm install redux-thunk
+리덕스에서 비동기 작업을 처리할 때 사용
+액션 객체가 아닌 함수를 디스패치 할 수 있다.
+thunk 사용예시
+const thunk = store => next => action => {
+	typeof action === 'function'
+	? action(store.dispatch, store.getState)
+	: next(action)
+}
+
+const getComments = () => (dispatch, getState) => {
+	const id = getState().counter;
+	//요청을 시작했다는 액션
+	dispatch({type: 'GET_COMMENT'});
+	try {
+		//조회
+	}
+	catch(e){
+	}
+}
+
+state = {
+	loading:false
+	data:null
+	error:null
+}
+
+포스트 여러개 조회하기
+
+const GET_POSTS
+const GET_POSTS_SUCCESS
+const GET_POSTS_ERROR
+
+포스트 하나 조회하기
+
+
+------------------------------------------------------------------
+const thunk = store => next => action => {
+	typeof action === 'function' ?
+	action(store.dispatch, store.getState)
+	:next(action)
+}
+
+
+--------------------------------------------------------------------
+server 설치
+npm init 으로 package.json 설치
+npm install express 로 package-lock.json 설치
+npm install cors 설치
+
+
+
+
+
+
+

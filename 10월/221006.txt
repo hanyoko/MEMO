@@ -1,0 +1,21 @@
+도형 그리고 effect -> distort 도형 변형가능
+도형 만들고 anchor point 누르면 모서리 변형
+도형 만들어서 심볼에 넣으면 심볼 만들기 가능
+
+
+지디웹 : https://www.gdweb.co.kr/main/
+디비컷 : https://www.dbcut.com/
+
+사이트에서 F12 누르면 개발자 모드
+
+같은 코드로 다르게 나타나게 하는 것 : 반응형
+
+개발자 모드에서 이미지 가져올 때 : disable javascript 클릭하면 가능
+
+ctrl+r : 가늠자
+
+이미지 찾을 때 : sources
+그리드 ctrl+'
+그리드 사용하면서 도형 그릴 때 snap to grid 클릭하면 자석처럼 쉽게 가능
+사각형 나눌 때 object -> path -> split into grid
+선 자르기 기능 : 가위 툴로 끊고 싶은 포인트 클릭

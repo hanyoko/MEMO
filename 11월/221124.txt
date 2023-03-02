@@ -1,0 +1,96 @@
+Date 객체와 날짜
+날짜를 저장할 수 있고 날짜와 관련된 메소드를 제공해주는 내장객체임.
+
+객체 생성하기
+new Date()
+new Date(milliseconds)
+new Date("2022-02-06")
+new Date(year, month, date, hours, minutes, seconds, ms)
+* year는 반드시 네자리 숫자여야한다. ex(1998)
+* month 0(1월)~11(12월) 사이의 숫자여야한다.
+* date는 일을 나타내는데, 값이 없는 경우 1일로 처리
+* hours, minutes, seconds, ms에 값이 없는 경우 0으로 처리
+new Date() => 현재 날짜와 시간이 저장된 객체가 반환된다.
+new Date(0) => 1970년 1월 1일 0시 0분 0초
+new Date(1000) =>
+
+let date1 = new Date()
+undefined
+date1
+Thu Nov 24 2022 09:17:09 GMT+0900 (한국 표준시)
+let date2 = new Date(0)
+undefined
+date2
+Thu Jan 01 1970 09:00:00 GMT+0900 (한국 표준시)
+let date3 = new Date("2022-11-13")
+undefined
+date3
+Sun Nov 13 2022 09:00:00 GMT+0900 (한국 표준시)
+let date5 = new Date(2022,10,12)
+undefined
+date5
+Sat Nov 12 2022 00:00:00 GMT+0900 (한국 표준시)
+
+=> 날짜 객체 만들기
+
+let dateNow = new Date()
+undefined
+dateNow.getFullYear();
+2022
+dateNow.getMonth();	//Month에는 +1을 해줘야 현재 월이 나타난다.
+10
+dateNow.getMonth()+1;
+11
+dateNow.getDate();
+24
+dateNow.getDay();
+4
+dateNow.getHours();
+9
+dateNow.getMinutes();
+20
+dateNow.getSeconds();
+56
+
+밀리초 => 초
+밀리초 / 1000
+
+밀리초 => 하루
+밀리초 / 1000 * 60
+
+setDate()
+let someDay = new Date(2022,10,12); //2022-11-12
+
+
+커스텀 속성 dataset
+<div id="" class="" date-key="date" date-value="50">
+dataset => {key: 'data', value: '50'}
+dataset.key => data
+dataset.value => 50
+
+new Date() => 현재 날짜와 시간을 가진 날짜객체
+new Date("2022-10-22") 해당하는 날짜와 시간을 가진 날짜 객체
+new Date(300000) 1970년 1월 1일을 기준으로 300000밀리초 지난 날짜와 시간을 가진 날짜 객체를 생성
+new Date(0) 1970년 1월 1일의 날짜 객체
+new Date(2022,10,26) 2022년 10월 26일 날짜 객체 0~11
+
+let today = new Date();
+today.getFullYear();
+today.getMonth()+1;
+today.getDate()
+today.getDay()
+today.getHouse()
+
+today.getTime() => 밀리초로 변환해서 반환
+setDate(기준일 + 20)
+
+
+
+
+
+
+
+
+
+
+

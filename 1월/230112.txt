@@ -1,0 +1,106 @@
+const aa = "green"
+"나는 오늘"+aa+"d에간다"	//"나는 오늘 green에 간다"
+php
+echo "나는 오늘".$aa."에 간다"
+
+템플릿 리터럴
+`나는 오늘 ${aa}에 간다`
+
+polished
+
+
+const props = {
+	title: "정말로 삭제하시겠습니까?",
+	confirmText: "삭제",
+	cancelText: "취소",
+	children: "데이터를 정말로 삭제하시겠습니까?"
+
+}
+
+connt Dialog = (props) => {
+	return (
+		<DarkBackground>
+            		<DialogBlock>
+                			<h3>{props}</h3>
+                			<p>p태그입니다.</p>
+            		</DialogBlock>
+        		</DarkBackground>
+	)
+}
+
+삭제버튼을 클릭하면 visible --> true
+Dialog 아래쪽 버튼 두개 중
+아무거나 클릭하면 visible --> false
+visible = true || false
+localVisible = true
+animate = false
+
+animate가 false이고
+localVisible이 false일 때
+Dialog 사라짐                     
+
+visible --> false로 변환
+
+useMemo, useCallback
+리액트 성능 최적화
+
+함수형 컴포넌트 --> 함수
+jsx를 반환하는 함수
+컴포넌트가 렌더링 되는 것은 그 컴포넌트 함수를 호출해서 실행되는 것을 말한다
+함수가 실행될 때 함수 내부에 선언된 표현식(변수, 다른함수)도 다시 선언되어 사용됩니다.
+컴포넌트는 자신의 state가 변경되거나, 부모에게서 받는 props가 변경될 때마다 리렌더링됩니다.
+
+state1, state2, state3
+state1을 변경
+state2, state3
+useMemo 란?
+useMemo ------> memoization을 뜻한다.
+동일한 값을 리턴하는 함수를 반복적으로 호출해야한다면 처음 값을 계산할 때,
+그 값을 메모리에 저장해서 필요할 때만 계산을 하지않고 메모리에서 꺼내서 재사용하는 기법
+자주 필요한 값을 처음 계산할 때 캐시에 저장을 해두어 값이 필요할 때마다 다시 계산하지않고 캐시에서 꺼내서 재사용
+구문	* deps ---> 의존성 배열
+useMemo(()=>{
+	return value;
+},[deps])
+function calculate(value){
+	return value+1;
+}
+function FunComponent({value, text}){
+	const number = calculate(value);
+	return(
+		<div>
+			{number}
+			{text}
+		</div>
+	)
+}
+const number = calculater()
+
+
+원시(Primitive) 타입
+Number, String, Boolean, Null, undefined, BigInt
+
+const number = 20
+const number2 = 20
+number === number2
+true
+
+객체(Object)타입 - 참조형
+원시타입을 제외한 모든 것
+const objnumber = {
+	number: 20
+}
+const objnumber2 = {
+	number: 20
+}
+objnumber === objnumber2
+false
+
+
+
+
+
+
+
+
+

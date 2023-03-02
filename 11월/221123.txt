@@ -1,0 +1,10 @@
+폼요소 접근
+document.forms.폼네임.요소네임
+폼관련 이벤트
+input 이벤트
+change이벤트
+폼관련속성
+checked true 값이면 체크 false면 체크해지
+
+focus, submit 이벤트
+

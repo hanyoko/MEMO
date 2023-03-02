@@ -1,0 +1,147 @@
+상태관리
+1) useState(초기값) -----> [state, setState]
+setState(변경되는 값)
+2) useReducer(리듀서함수, 상태초기값)
+-----> [state, dispatch]
+dispatch({
+	type: 'TOGGLETODO'
+})
+
+function reducer(state, action){
+	switch(action.type){
+		case "입금" :
+			return state+action.금액;
+		case "출금":
+			return state-action.금액;
+		default:
+		return state;
+	}
+}
+const [state, dispatch] = useReducer(reducer, 10000);
+dispatch({
+	type: "입금",
+	금액: 20000                                                                                       
+})
+dispatch({
+	type: "출금",
+	금액: 10000
+})
+
+자식 컴포넌트 값 전달 
+1) props
+{}
+부모 컴포넌트 -----> 자식 컴포넌트
+{
+	name: "green",
+	children: "안녕하세요"
+}
+function List(props){
+	const { name, children } = props;
+	"green"은 name에 담기고, "안녕하세요"는 children에 담긴다
+}
+function List({name, children}){
+하지만 바로 담아줄 수도 있다.
+
+}
+
+
+2) ContextAPI
+export const UserContext = createContext("green")
+const text = useContext(UserContext)
+<UserContext.Provider value={"blue"}>
+	<App />
+<UserContext.Provider>
+서버에서 데이터를 요청하여 결과를 리턴해주는 훅함수
+useAsn() -----> [state, fetchUsers];
+{
+	loading:
+	data:
+	error: 
+}
+
+useReducer
+{
+	loading:
+	data:
+	error:
+}
+context + reducer
+
+TodoContext.js
+return
+<TodoStateContext.Provider value={state}>
+	<TodoDispatchContext.Provider value={dispatch}>
+		<TodoNextIdContext.Provider value={ref}>
+			{children}
+		</TodoNextIdContext.Provider>
+	</TodoDispatchContext.Provider>
+</TodoStateContext.Provider>
+
+<TodoContext>
+<div></div>
+</TodoContext>
+
+-------------------------------------------------------------------------------------------------------------
+
+[리액트 라우터]
+각각의 url에 따라 선택된 데이터를 하나의 페이지에서 랜더링해주는 라이브러리
+spa에서 새로운 페이지를 로드하지않고 하나의 페이지 안에서 필요한 컴포넌트만 가져와서 다른 페이지를 나타내는 방식을 지원한다.
+
+* 라우팅 : 사용자가 요청한 url에 따라 해당 url에 맞게 페이지를 보여주는 것
+
+이전 mpa에서는 새로운 페이지를 로드하며 페이지를 이동하는 방식
+<a href="sub.html">서브페이지</a>
+
+1. 라우터 설치하기
+npm install react-router-dom
+
+2. 라우터 사용하기
+1) 상위 컴포넌트에서 라우터를 적용 ---> <BrouwserRouter>컴포넌트
+ex.
+<BrouwserRouter>
+	<App></App>
+</BrouwserRouter>
+
+2. 경로에 따라 보여질 component를 설정 <Routes><Route>컴포넌트
+Routes 컴포넌트는 여러 Route를 감싸서 그중 url이 일치하는 라우트 단 하나만 랜더링 시켜준다
+Route는 path 속성에 경로, element 속성에 컴포넌트를 지정
+ex.
+<Routes>
+	<Route path="경로" element={<component/>} />
+	<Route path="경로" element={<component/>} />
+</Routes>
+localhost:3000/product
+<Routes>
+	<Route path="/" element={<Main/>} />
+	<Route path="/product" element={<Product/>} />
+</Routes>
+
+
+url 파라미터와 쿼리 스트링
+페이지 주소를 정의할 때 가끔은 변화는 유동적인 값을 사용해야할 때도 있다.
+1) URL 파라미터 예시
+/product/item1
+useParams(); ----> 객체리턴
+{
+	
+}
+2) 쿼리스트링이 예시
+/product?item=1&keyword=react
+useLocation() ---> 객체 리턴
+{
+	item: "1",
+	keyword: "react"
+}
+
+
+useNavigate()
+Link 컴포넌트를 사용하지않고 다른페이지로 이동을 해야할 때 사용하는 Hook
+const navigate = useNavigate();
+이전페이지로 이동
+navigate(-1)
+경로로 이동
+navigate('/product')
+
+
+
+

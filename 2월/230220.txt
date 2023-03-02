@@ -1,0 +1,27 @@
+1. props 전달 시 props 타입을 interface로 지정해야한다.
+ex)
+interface HelloProps = {
+	name: string
+}
+const Hello ({name}: HelloProps) => {}
+2. 상태의 타입의 지정
+상태타입이 변경되지 않는 경우는 생략해도된다
+상태가 null일 수도 있고 아닐 수도 있을 때 제네릭을 활용하여 지정
+ex)
+const [state, setState] = useState(0) //타입유추 : 제네릭 타입생략가능
+type stateobject = {name: string, age: number}
+const [state, setState] = useState<null | stateobject>(null)
+
+3. 이벤트 객체의 타입지정
+onChange시 이벤트 객체의 타입
+React.ChangeEvent<HTMLInputElment>
+onSubmit 이벤트 객체의 타입
+React.FormEvent<HTMLFormElment>
+
+4.useReducer 사용하기
+reducer 함수 생성
+//올 수 있는 액션 객체를 유니언 타입으로 쭉 나열
+type Action = {type: 'INCREASE'} | {type: 'DECREASE'}
+function reducer(state:number, action:Action):number{
+
+}

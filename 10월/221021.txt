@@ -1,0 +1,43 @@
+css 변수 !!!!!!!
+:root {
+	--color1: red;
+	--color2: blue;
+	--bigfont: 42px;
+	--smallfont: 12px;
+	--middlefont: 19px;
+}
+div { font-size: var(--smallfont)} 이렇게 입력하면 자동으로 smallfont의 값이 입력된다.
+if, 색이나 글자 크기를 바꿔야하는 일이 생기면 변수로 지정해둔 값만 바꾸면 된다. !!! 아주 편리한 방법 !!!
+
+그림자
+글자에 그림자를 지정
+text-shadow : x-offser y-offset blur color;
+ex) h2 { text-shadow: 2px 2px 5px red; }
+* DOM 요소에 그림자를 지정
+box-shadow : x-offset y-offset blur color;
+ex) div { box-shasow : 2px 2px 5px red; }
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2 { text-shadow: 10px 10px 5px red; }
+        div {
+            width: 300px;
+            height: 200px;
+            box-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+            border-radius: 50px 50px 50px 0px; /* 각진 모서리를 둥글게 */
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>오늘은 금요일</h2>
+    </div>
+</body>
+</html>

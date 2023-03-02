@@ -1,0 +1,99 @@
+*리액트 상태관리
+1) useState(초기값) ---> [state, setState]
+2) useReducer(리듀서 함수, 초기값)
+* 상태
+리듀서 함수 구현
+const [state, dispatch] = useReducer(리듀서함수, 초기값)
+*상태 업데이트
+dispatch({ type: 'increase' })
+3) redux 라이브러리
+리듀스 함수
+스토어 생성
+* createStore(reducer 함수)
+*상태조회
+store.getState()
+*상태 업데이트
+store.dispatch()
+*구독
+store.subscribe(함수)
+4) 리액트 리덕스
+*스토어 생성
+리덕스 모듈 만들기
+1. 액션타입
+2. 액션생성함수
+3. 리듀서 !!!
+루트 리듀서 만들기
+export default const rootReducer = combineReducer({
+	counter: counter,
+	todos: todos
+})
+const store = createStore(rootReducer, applyMiddlewear(Reduxthunk))
+<Provider store={store}>
+	<App/>
+</Provider>
+*Hook함수
+상태값 조회
+useSelector(state=>state.counter)
+업데이트 생성
+const dispatch = useDispatch()
+
+props 
+<App>
+	<Header title="green">
+</App>
+
+{title: "green"}
+function Header(props){
+	const { title } = props;
+}
+function Header({ title }){
+
+}
+//두 함수가 같은 말이다
+
+ContextAPI
+생성
+const TodoContext = createContext(초기값)
+변경
+<TodoContext.Provider value={}>
+	<App />
+</TodoContext.Provider>
+사용
+const state = useContext(TodoCountext)
+
+
+test 데이터 베이스
+create database test
+use test
+member 테이블
+create table member(
+	m_no int primary key auto_increment,
+	m_name varchar(50) not null,
+	m_nickname varchar(100) not null,
+	m_gender varchar(1) 
+)
+
+insert into member(m_name, m_nickname, m_gender)
+values("김그린", "green", "남")
+insert into member(m_name, m_nickname, m_gender)
+values("이세라", "sera", "여")
+insert into member(m_name, m_nickname, m_gender)
+values("김블루", "blue", "남")
+
+{
+	loading:
+	data:
+	error:
+}
+
+
+
+
+
+
+
+
+
+
+
+

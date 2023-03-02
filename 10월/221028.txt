@@ -1,0 +1,107 @@
+Mixins 재활용
+스타일 시트 내에 재사용할 css 선언 그룹을 정의
+
+1. 선언하기 @mixin
+ex) @mixin flexbox($dir, $justify, $align) {
+	display: flex;
+	flex-direction: $dir;
+	justify-content: $justify;
+	align-items: $align;	
+}
+div {
+	@include flexbox(column, center, center)
+}
+ul {
+	@include flexbox(row, space-between, center)
+}
+2. 사용하기 @include
+* 스타일 블록 전달하기
+@minxin 믹스인이름() {
+	@content;
+}
+@include 믹스인이름() {
+	color: red;
+}
+
+// mixin 재활용
+// mixin 선언하기 @mixin
+// mixin 사용하기 @include
+// 매개변수가 없을 때 @mixin 믹스인이름 { 스타일; }
+// 매개변수가 있을 때 @mixin 믹스인이름() { 스타일; }
+// div { @include 믹스인이름; }
+@mixin largetext {
+    font-size: 22px;
+    font-weight: bold;
+    font-family: "나눔 고딕";
+    color: red;
+    &::after {
+        content: "HELLO";
+    }
+    span {
+        color: pink;
+    }
+}
+h2 {
+    @include largetext();
+}
+div {
+    @include largetext();
+}
+p { @include largetext(); }
+
+=> scss에서 @include를 사용하면 css에 자동으로 입력된다
+
+@charset "UTF-8";
+h2 {
+  font-size: 22px;
+  font-weight: bold;
+  font-family: "나눔 고딕";
+  color: red;
+}
+
+div {
+  font-size: 22px;
+  font-weight: bold;
+  font-family: "나눔 고딕";
+  color: red;
+}
+
+p {
+  font-size: 22px;
+  font-weight: bold;
+  font-family: "나눔 고딕";
+  color: red;
+}
+
+
+@mixin dash-line($width:1px, $color:black) {
+    border: $width dashed $color;
+}
+.box1 { @include dash-line(1px, red); }
+.box2 { @include dash-line(5px, blue); }
+.box3 { @include dash-line(); } /* 기본값을 사용하고 싶을 때 */
+.box4 { @include dash-line($color: pink); } /* px은 기본값으로 사용하고 색상만 변경하고 싶을 때 */
+
+object-fit 속성
+요소의 크기에 맞게 <img> 태그의 크기를 조정하는 방법으로 사용되는 속성
+fill
+-> 기본값, 요소에 크기에 맞게 보여준다.
+contain
+-> 요소의 가로나 세로크기에 가능한 딱 맞춰져 크기가 조정되고 비율을 유지된다.
+cover
+-> 요소의 가로나 세로크기에 가능한 맞춰 크기가 조정되며 개체 크기에 맞게 잘린다. 요소에 가득채울때까지 확대된다.
+none
+-> 크기가 조정되지 않고 원본 사이즈로 처리된다. 크면 잘리고, 작으면 남는다.
+scale-down
+-> 크기가 아무것도 지정되지 않거나 혹은 contain이 적용되어 있는 것처럼 변경된다. 원본 큭가 작아지는 결과를 보여준다.
+
+fill
+-> 
+contain
+-> 
+cover
+-> 
+none
+-> 
+scale-down
+-> 

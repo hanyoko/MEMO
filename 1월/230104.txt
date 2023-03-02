@@ -1,0 +1,171 @@
+[React]
+사용자 인터페이스를 만들기 위한 자바스크립트 라이브러리
+- 기본적으로 자바스크립트 기반이기에, 자바스크립트를 제대로 이해해야한다
+
+(리액트, 뷰, 앵귤러가 있지만 리액트를 사용할 예정)
+
+Virtual DOM은 가상의 DOM
+- 실제로 보여지는 DOM이 아니라 그냥 메모리에 가상으로 존재하는 DOM
+- 작동 성능이 실제로 브라우저에서 DOM을 보여주는 것보다 속도가 훨씬 빠르다.
+- 리액트는 상태가 업데이트 되면 업데이트가 필요한 곳의 UI를 Virtual DOM을 통해서 렌더링합니다.
+
+작업환경준비
+- node.js 필요
+- npm 패키지 매니저 도구(Node.js 설치시 같이 딸려온다.)
+- Git
+
+JSX
+하나의 태그로 감싸야하는 태그
+두개 이상의 태그는 무조건 하나의 태그로 감싸져있어야합니다.
+다음과 같은 코드는 오류가 발생
+return(
+	<Hello>
+	<div>안녕하세요</div>
+)
+JSX 자바스크립트 사용
+
+
+props
+
+
+React 장점
+- 컴포넌트 단위 개발 (생산성 향상, 유지보수 용이)
+- 싱글페이지 어플리케이션 (사용자 경험 개선)
+- 높은 인지도
+
+node.js 설치방법
+https://nodejs.org/en/
+18.12.1 LTS가 안정적인 버전
+
+
+명령프롬프트
+C:\Users\GreenArt>node -v
+v18.12.1
+
+C:\Users\GreenArt>d:
+
+D:\>cd D:\01-STUDY\kyh\09.REACT
+
+D:\01-STUDY\kyh\09.REACT>npx create-react-app begin-react
+Need to install the following packages:
+  create-react-app@5.0.1
+Ok to proceed? (y) y
+
+를 완료하면 설정 완료
+
+Terminal -> New Terminal -> npm start 입력
+
+
+환경변수 추가
+내 pc 검색 -> 오른쪽 마우스 클릭 후 속성 -> 환경 변수
+ -> 시스템 변수에서 Path 편집 -> C 드라이브에 있는 nodejs 파일 경로 추가
+
+
+React 주의할 점
+- 하나의 태그로 감싸야한다.
+- 반드시 태그를 닫아줘야한다.
+ex) <img src={logo} className="App-logo" alt="logo" />
+
+
+import React from 'react';
+function Hello(){
+    return (
+    <>
+        <div>안녕하세요</div>
+        <p>재미있는 리액트</p>
+    </>
+    )
+}
+export default Hello;
+
+- 태그를 두개 이상 작성할 때는 소괄호로 한번 감싸줘야한다.
+- 태그를 두개 이상 작성할 때는 하나의 태그로 감싸줘야한다.
+- css를 입력시켜야하는데 태그로 인해 입력이 안 될 수 있을 때에는 빈태그로도 감싸줄 수 있다.
+
+jsx 구문
+- 닫혀야 하는 태그 (태그는 꼭 닫혀야합니다.)
+- 하나의 태그로 감싸져 있어야 한다.
+- jsx 안에 자바스크립트 값 사용은 {} 감싼다.
+- class 지정은 className 속성을 사용
+- 주석 {/* 주석 *}
+
+상태 state
+props : 컴포넌트에게 값을 전달하기
+<Hello name="green" age="30"/>  (={ name:"green",age:"30"})
+function Hello(props){
+	{props.age}
+}
+
+
+★ 구조분해할당 개념 제대로 정리하기 ★
+
+암기해야할 것
+props 쓰는 방법 - 상위 컴포넌트에 하위 컴포넌트를 쓸 수 있다.
+props는 단방향이다.
+JSX에서 if문은 사용할 수 없다. thus 삼항연산자를 사용해야한다.
+
+
+function Hello(props){
+	{props.age}
+}
+
+[이벤트 연결]
+<자바스크립트 이벤트>
+1) dom.addEventListener("이벤트",function(){})
+2) <button onclick="함수이름()">+1</button>
+3) dom.on이벤트명 = function(){
+}
+ex) button.onclick = function(){}
+상태 state - 동적인 값
+
+**상태관리하기 ★x100
+컴포넌트에서 동적인 값을 상태라고 합니다.
+리액트에 useState 함수를 사용하여 state를 관리합니다. useState함수 !!!!!!!!!
+useState(초기값)
+=> 배열을 리턴
+
+function useState(state){
+	return array
+}
+
+*상태 생성방법
+useState(0) => [newstate,setState()]	//useState를 사용해야면 상태를 만들 수 있다.
+		상태	상태를 업데이트 할 수 있는 함수
+
+
+뷰, 리액트, 앵귤러오후 2:32 2023-01-0
+
+배열, 객체, 구조분해, 화살표함수, 스프레드
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

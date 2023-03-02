@@ -1,0 +1,37 @@
+제품테이블
+제품번호, 제목, 사진, 가격, 수량, 배송비, 간략설명
+상세설명, 컬러, 사이즈
+create table products(
+	p_no int primary key auto_increment,
+	p_title varchar(50) not null,
+	p_soimg varchar(200),
+	p_bigimg varchar(200),
+	p_price int not null,
+	p_delprice int,
+	p_sodesc varchar(500),
+	p_desc text,
+	p_color varchar(50),
+	p_size varchar(50),
+	p_quantity int not null
+)
+
+
+장바구니 테이블
+장바구니번호, 회원아이디, 제품번호, 수량, 사이즈, 컬러
+create table shoppingCart(
+	c_no int primary key auto_increment,
+	c_memberid varchar(20),
+	c_pno int not null,
+	c_quantity int not null,
+	c_size varchar(20),
+	c_color varchar(20),
+	foreign key(c_pno) references products(p_no)
+)
+
+상품이미지, 상품제목, 가격, 수량, 배송비, 옵션
+
+select products.p_soimg. products.p_title, products.p_price
+product.p_delprice, shoppingcart.c_quantity,
+shoppingcart.c_memberid, shoppingcart.c_size, shoppingcart.c_color from products
+inner join shoppingcart
+on products.p_no = shoppingcart.c_pno

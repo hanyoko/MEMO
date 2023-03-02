@@ -1,0 +1,26 @@
+알고리즘
+
+git 설치방법
+git 사이트 방문 -> Downloads -> 64bit 다운로드
+
+git 유저설정
+원하는 폴더에서 오른쪽 마우스 -> git bash here -> git config --list
+
+GreenArt@GRN-303-04 MINGW64 /d/01-STUDY/kyh/06.JAVASCRIPT
+$ git config --list
+diff.astextplain.textconv=astextplain
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+http.sslbackend=openssl
+http.sslcainfo=C:/Program Files/Git/mingw64/ssl/certs/ca-bundle.crt
+core.autocrlf=true
+core.fscache=true
+core.symlinks=false
+pull.rebase=false
+credential.helper=manager-core
+credential.https://dev.azure.com.usehttppath=true
+init.defaultbranch=master
+
+=> 이런 값이 나온다

@@ -1,0 +1,182 @@
+if(num=="1"){
+}else if(num=='2'){
+}else{
+}
+
+switch(num){
+	case '1':
+	실행할 구문;
+	break;
+	case '2';
+	실행할 구문;
+	break;
+	default: 
+		해당하는 case가 없을 때 실행
+}
+
+
+* 날짜 나타내기
+    <script>
+        let today = new Date();
+        let year = today.getFullYear();
+        let month = today.getMonth()+1;
+        let date = today.getDate();
+        let day = today.getDay();
+        console.log(day);
+        /*
+        console.log("오늘은 " + year + "년도 이고 " + month + "월 " + date + "일입니다." )
+        */
+       console.log(`오늘은 ${year}년도이고 ${month}월 ${date}일입니다.`) // 백틱(`)을 이용한 방법
+        switch(day){
+            case 0:
+                day = "일요일";
+                break;
+            case 1:
+                day = "월요일";
+                break;
+            case 2:
+                day = "화요일";
+                break;
+            case 3:
+                day = "수요일";
+                break;
+            case 4:
+                day = "목요일";
+                break;
+            case 5:
+                day = "금요일";
+                break;
+            case 6:
+                day = "토요일";
+                break;    
+        }
+        console.log(day);
+    </script>
+
+
+5
+오늘은 2022년도이고 11월 4일입니다.
+금요일
+
+
+[반복문]
+1. while // 무한반복을 시키면 프로그램이 종료된다. 그래서 주의해야한다.
+while(true){
+ 실행
+}
+let i = 0
+while(i<11){
+	console.log(i);
+	i++;
+	if(i>=11){
+		break;
+	}
+}
+
+2. do while
+do {
+	실행문
+} while(false)
+
+    <script>
+        let i = 1;
+        /*
+        while(i<11){
+            console.log(i);
+            i++;
+        } */
+        /*
+        while(true){
+            console.log(i);
+            i++;
+            if(i>=11){
+                break;
+            }
+        } */
+        
+        while(false) {
+            console.log("실행되지않음");
+        }
+        do {
+            console.log("1번은 무조건 실행됨"); //true이면 계속 반복되고, false이면 끝난다.
+        } while(false)
+        let j = 0;
+        do {
+            alert(j);
+            j++;
+        } while( j < 5 ); //4까지 알림창이 뜬다.
+        // while( j > 5 ); j는 0이라서 5보다 작지만 0 한번은 실행시켜준다.
+    </script>
+
+
+3. for
+
+for 문은 while 문과는 달리 자체적으로 초기식, 표현식, 증감식을 모두 포함하고 있는 반복문이다.
+따라서, while 문보다는 좀 더 간결하게 반복문을 표현할 수 있다.
+for 문의 문법
+for (초기식; 표현식; 증감식) {
+	표현식의 결과가 참인 동안 반복적으로 실행하고자 하는 실행문;
+}
+/*
+        for(초기값; 조건; 증감){
+            실행코드
+        }
+*/
+
+for 문을 구성하는 초기석, 표현식, 증감식은 각각 생략될 수 있다.
+또한, 쉼표 연산자를 사용하면 여러 개의 초기식이나 증감식을 동시에 사용할 수 있다.
+
+ex)
+for(var i = 1; i<10; i++) {
+	document.write(i + "<br>");
+}
+const fruits = ['사과', '딸기', '수박', '포도']
+for(let i=0; i<fruits.length; i++){
+	console.log(fruits[i])
+}
+
+
+
+if 예제
+1. 년도를 입력받는다 
+2. 해당년도가 윤년이면 윤년입니다. 를 출력한다.
+3. 해당년도가 평년이면 평년입니다. 를 출력한다.
+* 4로 나누어서 떨어지는 해는 윤년이다.
+* 이중에서 100으로 나누어 떨어지는 해는 평년
+* 그중에 400으로 나누어 떨어지는 해는 윤년 
+
+
+
+이중 for 문
+0~9
+for(let i=0; i<10; i++){
+	for(let j=0, j<5; j++){
+		console.log(i);	
+		console.log(j);
+	}
+}
+
+이중 for문을 이용해서 구구단 만들기
+<script>
+        for(let i=2; i<10; i++){
+            for(let j=1; j<10; j++){
+                console.log(`${i} * ${j} = ${i*j}`);
+            }
+        }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,27 @@
+230213
+
+예약 구현하기
+1. 체크인 날짜 체크아웃 날짜가 선택되면 (2023-02-13~2023-02-15)
+예약테이블에서 2023-02-13, 2023-02-14 체크인 날짜가 있는지 확인
+해당 날짜에 해당하는 객실번호 조회
+그 객실번호를 제외한 다른 객실 목록을 리스트에 뿌려줌
+21번 객실이 2023-02-13~2023-02-16 예약되어있음
+
+2. 예약번호(문자) 랜덤하게 생성
+axios 전송 시(get) start, end 날짜를 전송
+1) parameter
+2)querystring
+경로
+
+rv_rene 예약번호
+rv_roomno 객실번호
+rv_email 고객이메일(id)
+rv_checkin 체크인
+rv_checkout 체크아웃
+rv_adult 성인수
+rv_child 아동수
+rv_desc 추가설명
+rv_phone 고객연락처
+rv_name 고객명
+rv_roomname 객실이름
+rv_price

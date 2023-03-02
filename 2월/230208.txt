@@ -1,0 +1,26 @@
+e_title: "",
+e_time: "",
+e_titledesc: "",
+e_desc: "",
+e_category: "",
+e_img1: "",
+e_img2: "",
+
+<input type="file"> ---> 변경(onChange)될 때 --->
+폼생성
+const imageFormData = new FormData()
+---> 폼에 파일데이터 추가
+imgaeFormData.append('img', e.target.files[0])
+---> upload 경로로 post 전송
+axios.post('/upload', imageFormData, {
+	headers: {'content-type':'multipart/formdata'}
+})
+then()
+.catch()
+---> 전송 응답을 받아서 setFormData ---> e_img: "응답결과"
+
+conn.query("쿼리문", 콜백함수)
+conn.query("쿼리문", [변수.....], 콜백함수)
+
+conn.query(`insert into event(e_title, e_desc) values('${e_title}', '${e_desc}')`, 콜백함수)
+conn.query(`insert into event(e_title, e_desc) values(?,?)`, [e_title, e_desc], 콜백함수)
