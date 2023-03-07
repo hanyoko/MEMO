@@ -1,0 +1,6 @@
+230307
+
+react 배포하기
+
+https://blog.naver.com/pink_candy02/222436599360	//블로그 참고
+https://dashboard.heroku.com/apps
