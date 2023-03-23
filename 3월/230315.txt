@@ -1,0 +1,18 @@
+<230315>
+
+포트폴리오 사이트 준비
+
+https://themeforest.net/search/react%20developer%20portfolio?page=2#content
+https://www.behance.net/gallery/147275609/Portfolio-Design?tracking_source=search_projects%7Cdeveloper+portfolio
+https://www.behance.net/gallery/165372729/Site-portfolio-for-developer-(landing-page)/modules/934387359
+
+https://github.com/19sajib/portfolio
+https://sajib.vercel.app/
+
+iframe
+
+Cannot read properties of undefined (reading 'pathname')
+
+
+navbar 구현
+Typewriter 구현230300
