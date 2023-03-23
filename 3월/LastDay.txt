@@ -1,0 +1,18 @@
+LastDay
+
+https://www.notion.so/login								노션
+https://blog.naver.com/pink_candy02							선생님 블로그
+https://cafe.naver.com/pinkwebdesign?iframe_url=/MyCafeIntro.nhn%3Fclubid=29408298	선생님 카페
+https://github.com/design-view							선생님 깃허브
+https://www.apachelounge.com/download/						아파치 설치
+https://www.dbcut.com/								디비컷 (사이트 모음)
+https://www.miricanvas.com/workspace/template					미리 캔버스
+https://webgradients.com/								색 그라디언트 사이트
+https://react-icons.github.io/react-icons						react icons
+https://axios-http.com/kr/docs/intro							axios 정리
+https://reactrouter.com/en/main							react router
+https://expressjs.com/ko/								NodeJs 프레임워크
+https://www.postman.com/downloads/							postman 다운로드 사이트
+https://ko.redux.js.org/								redux
+https://cdnjs.com/libraries/redux							redux
+https://github.com/reduxjs/redux-devtools/tree/main/extension				redux
