@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 230320
 
 echo "# THENADLEE" >> README.md
@@ -7,3 +8,14 @@ git commit -m "first commit"
 git branch -M main
 git remote add origin https://github.com/hanyoko/THENADLEE.git
 git push -u origin main
+=======
+230320
+
+echo "# THENADLEE" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/hanyoko/THENADLEE.git
+git push -u origin main
+>>>>>>> a4658f33b132b701412ba302e59044628f3f3255

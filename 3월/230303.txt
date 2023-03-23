@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 230303
 
 조건문
@@ -106,3 +107,113 @@ window.addEventListner("customClick", {}=>{
 })
 
 
+=======
+230303
+
+조건문
+if
+elif
+else
+조건부표현식
+score = 60
+if score > 70:
+	message = "a"
+else :
+	message = "b"
+조건부표현식
+message = "a" if score > 70 else "b"
+
+in	a in b(리스트, 튜플, 문자열)
+	not in 
+
+반복문
+while
+
+
+윤년 구하기
+* 년도를 입력받아서 윤년인지 평년인지 나타내주세요
+1. 년수가 4로 나누어 떨어지는 해는 윤년으로 한다.
+2. 이중에서 100으로 나누어 떨어지는 해는 평년으로 한다.
+3. 그중에 400으로 나누어 떨어지는 해는 윤년으로 한다.
+- 정수로 년도를 받습니다.
+- 입력받은 년도가 윤년인지 평년인지 출력하세요
+
+for문
+for 변수 in 리스트 (또는 튜플, 문자열):
+	수행할 문장 ...
+test_list = ["one", "two", "three"]
+for i in test_list:
+	print(i)
+
+range()함수
+range(stop) 0~stop-1까지 숫자를 생성
+range(start, stop) start ~ stop-1까지 숫자를 생성
+range(start, stop, step) start~stop-1까지의 숫자를 step간격으로 생성
+
+for i in range(1,11)
+
+01. 평균구하기
+[70,60,55,75,95,90,80,80,85,100]
+for문을 사용하여 A 학급의 평균 점수를 구해보자.
+len(리스트) ---> 리스트길이
+
+02. *출력
+*
+**
+***
+****
+*****
+03. 가위바위보 게임 만들기
+가위, 바위, 보 중 하나를 입력받고 컴퓨터는 랜덤으로 가위, 바위, 보 중 하나를 지정하고 누가 이겼는지 출력
+
+04. 로또번호 출력
+1~45 ---> 겹치지않게 랜덤한 숫자로 6개 출력
+1~45 
+lottolist = []
+resultlist = []
+
+lottolist = []
+resultlist = []
+
+함수
+def 함수명(매개변수) :
+	수행할 문장
+
+매개변수 : 함수에 입력으로 전달받는 값을 받는 변수
+인수 : 함수를  호출할 때 전달하는 입력 값
+def add(a,b) :
+	return a+b
+
+re = add(1,2)
+re ---> 3
+
+------------------------------------------------------------------------
+
+자바스크립트로 라우터 구현
+커스텀 이벤트
+
+자바스크립트를 사용하면 이벤트핸들러를 할당할 수 있으며 이벤트를 직접 만들 수도 있습니다.
+1. 이벤트 생성
+new CustomEvent("type", {detail: {전달객체}})
+- type : 이벤트의 타입을 나타내는 문자열
+- customEvent 두번째 인수엔 객체가 들어갈 수 있는데
+detail이라는 프로퍼티를 추가해 커스텀 이벤트 관련 정보를 명시 정보를 이벤트에 전달할 수 있다.
+
+2. 이벤트 호출
+dispatchEvent(커스텀이벤트객체)
+이벤트 객체를 생성한 다음 dispatchEvent(이벤트객체)를 통해서 호출할 수 있다.
+ex) const cuEvent = new customEvent("customClick",
+	{detail: {message: "hi"}}
+	)
+	dispatchEvent(cuEvent)
+	dispatchEvent(new customEvent("customClick",{
+		detail: {message: "hihi"}
+	}))
+
+3. 이벤트 핸들링
+window.addEventListner("customClick", {}=>{
+	console.log(e.detail.message)
+})
+
+
+>>>>>>> a4658f33b132b701412ba302e59044628f3f3255

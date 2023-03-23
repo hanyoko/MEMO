@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 230307
 
 react 배포하기
 
 https://blog.naver.com/pink_candy02/222436599360	//블로그 참고
+=======
+230307
+
+react 배포하기
+
+https://blog.naver.com/pink_candy02/222436599360	//블로그 참고
+>>>>>>> a4658f33b132b701412ba302e59044628f3f3255
 https://dashboard.heroku.com/apps
